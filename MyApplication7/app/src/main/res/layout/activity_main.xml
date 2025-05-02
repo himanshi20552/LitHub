@@ -265,6 +265,7 @@
 
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/nav_practice"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_weight="1"
