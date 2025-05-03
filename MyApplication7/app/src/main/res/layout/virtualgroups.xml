@@ -187,25 +187,19 @@
 
     </ScrollView>
 
-
-
-
-
-
-
-
-
-    <!-- Bottom Navigation -->
+    <!-- Bottom Navigation - Material 3 Style -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="64dp"
         android:orientation="horizontal"
         android:gravity="center"
-        android:background="@drawable/nav_bg">
+        android:background="@drawable/nav_bg"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp">
 
-        <!-- Each nav icon -->
+        <!-- Resources -->
         <LinearLayout
             android:orientation="vertical"
             android:gravity="center"
@@ -216,34 +210,43 @@
             <ImageView
                 android:src="@drawable/ic_book"
                 android:layout_width="24dp"
-                android:layout_height="24dp"/>
+                android:layout_height="24dp"
+                android:tint="#A0A0A0"/>
             <TextView
                 android:text="Resources"
-                android:textColor="#FFFFFF"
+                android:textColor="#A0A0A0"
                 android:textSize="12sp"
+                android:fontFamily="sans-serif"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"/>
-
         </LinearLayout>
+
+        <!-- Group Study (Active) -->
         <LinearLayout
             android:orientation="vertical"
             android:gravity="center"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/nav_item_active_bg"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
 
             <ImageView
                 android:src="@drawable/ic_groupstudy"
                 android:layout_width="24dp"
-                android:layout_height="24dp"/>
+                android:layout_height="24dp"
+                android:tint="#C5BFFF"/>
             <TextView
                 android:text="Group Study"
-                android:textColor="#FFFFFF"
+                android:textColor="#C5BFFF"
                 android:textSize="12sp"
+                android:fontFamily="sans-serif-medium"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"/>
-
         </LinearLayout>
+
+        <!-- Collaborate -->
         <LinearLayout
             android:orientation="vertical"
             android:gravity="center"
@@ -254,16 +257,20 @@
             <ImageView
                 android:src="@drawable/ic_collaborate"
                 android:layout_width="24dp"
-                android:layout_height="24dp"/>
+                android:layout_height="24dp"
+                android:tint="#A0A0A0"/>
             <TextView
                 android:text="Collaborate"
-                android:textColor="#FFFFFF"
+                android:textColor="#A0A0A0"
                 android:textSize="12sp"
+                android:fontFamily="sans-serif"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"/>
-
         </LinearLayout>
+
+        <!-- Practice -->
         <LinearLayout
+            android:id="@+id/nav_practice"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_weight="1"
@@ -273,17 +280,16 @@
             <ImageView
                 android:src="@drawable/ic_practice"
                 android:layout_width="24dp"
-                android:layout_height="24dp"/>
+                android:layout_height="24dp"
+                android:tint="#A0A0A0"/>
             <TextView
                 android:text="Practice"
-                android:textColor="#FFFFFF"
+                android:textColor="#A0A0A0"
                 android:textSize="12sp"
+                android:fontFamily="sans-serif"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"/>
-
         </LinearLayout>
-        <!-- Repeat for other nav items like Group Study, Collaborate, Practice -->
-        <!-- ... -->
     </LinearLayout>
 
 </RelativeLayout>
