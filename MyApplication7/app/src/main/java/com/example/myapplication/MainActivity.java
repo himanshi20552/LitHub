@@ -1,5 +1,6 @@
 package com.example.myapplication; // Replace with your package name
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -27,13 +28,14 @@ public class MainActivity extends AppCompatActivity {
             int id = item.getItemId();
 
             if (id == R.id.nav_bookmarks) {
-                // Handle bookmarks
+                // Handle bookmarks (to be implemented)
             } else if (id == R.id.nav_turnitin) {
-                // Handle turnitin
+                // Launch Turnitin Activity
+                startActivity(new Intent(MainActivity.this, TurnitinActivity.class));
             } else if (id == R.id.nav_settings) {
-                // Handle settings
+                // Handle settings (to be implemented)
             } else if (id == R.id.nav_logout) {
-                // Handle logout
+                // Handle logout (to be implemented)
             }
 
             drawerLayout.closeDrawer(GravityCompat.START);
