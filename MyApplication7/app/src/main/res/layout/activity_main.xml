@@ -1,74 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0A0325">
+    android:fitsSystemWindows="true">
 
-    <ScrollView
+    <!-- Your original content (unchanged) -->
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bottomNav">
+        android:background="#0A0325">
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:padding="16dp"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottomNav">
 
-            <!-- Top bar -->
             <LinearLayout
+                android:orientation="vertical"
+                android:padding="16dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginBottom="16dp">
+                android:layout_height="wrap_content">
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                <!-- Top bar -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <ImageView
+                        android:id="@+id/menu_icon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="12dp"
+                        android:src="@drawable/ic_menu" />
+
+                    <ImageView
+                        android:layout_width="130dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="12dp"
+                        android:src="@drawable/lithub_logo"
+                        android:layout_marginStart="12dp" />
+                </LinearLayout>
+
+                <!-- Search Bar -->
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp"
+                    android:hint="  Search by title, author, or subject"
+                    android:drawableStart="@drawable/ic_search"
+                    android:background="@drawable/search_bg"
+                    android:paddingStart="16dp"
+                    android:textColorHint="#CCCCCC"
+                    android:textColor="#FFFFFF" />
+
+                <!-- Books Section -->
+                <TextView
+                    android:text="Books >"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:layout_marginTop="24dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:scrollbars="none"
+                    android:importantForAccessibility="no">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="120dp"
+                            android:layout_height="160dp"
+                            android:src="@drawable/book_sample"
+                            android:layout_marginEnd="8dp" />
+
+                        <ImageView
+                            android:layout_width="120dp"
+                            android:layout_height="160dp"
+                            android:src="@drawable/book_sample"
+                            android:layout_marginEnd="8dp" />
+                        <ImageView
+                            android:layout_width="120dp"
+                            android:layout_height="160dp"
+                            android:src="@drawable/book_sample"
+                            android:layout_marginEnd="8dp" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <!-- Filter by Course -->
+                <TextView
+                    android:text="Filter by course >"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:layout_marginTop="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="2"
+                    android:orientation="horizontal"
                     android:layout_marginTop="12dp"
-                    android:src="@drawable/ic_menu" />
+                    android:alignmentMode="alignMargins"
+                    android:columnOrderPreserved="false"
+                    android:useDefaultMargins="true">
 
-                <ImageView
-                    android:layout_width="130dp"
-                    android:layout_height="60dp"
-                    android:layout_marginTop="12dp"
-                    android:src="@drawable/lithub_logo"
-                    android:layout_marginStart="12dp" />
-            </LinearLayout>
+                    <Button
+                        style="@style/FilterButton"
+                        android:text="MAD" />
 
-            <!-- Search Bar -->
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="43dp"
-                android:hint="  Search by title, author, or subject"
-                android:drawableStart="@drawable/ic_search"
-                android:background="@drawable/search_bg"
-                android:paddingStart="16dp"
-                android:textColorHint="#CCCCCC"
-                android:textColor="#FFFFFF" />
+                    <Button
+                        style="@style/FilterButton"
+                        android:text="Seminar" />
 
-            <!-- Books Section -->
-            <TextView
-                android:text="Books >"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                android:layout_marginTop="24dp"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"/>
+                    <Button
+                        style="@style/FilterButton"
+                        android:text="COA" />
 
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:scrollbars="none"
-                android:importantForAccessibility="no">
+                    <Button
+                        style="@style/FilterButton"
+                        android:text="Machine Learning" />
+                </GridLayout>
+
+                <!-- PYQs Section -->
+                <TextView
+                    android:text="PYQs >"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:layout_marginTop="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
                 <LinearLayout
                     android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp">
 
                     <ImageView
                         android:layout_width="120dp"
@@ -81,220 +160,159 @@
                         android:layout_height="160dp"
                         android:src="@drawable/book_sample"
                         android:layout_marginEnd="8dp" />
+
                     <ImageView
                         android:layout_width="120dp"
                         android:layout_height="160dp"
-                        android:src="@drawable/book_sample"
-                        android:layout_marginEnd="8dp" />
+                        android:src="@drawable/book_sample" />
                 </LinearLayout>
-            </HorizontalScrollView>
 
-            <!-- Filter by Course -->
-            <TextView
-                android:text="Filter by course >"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                android:layout_marginTop="24dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                <!-- Notes Section -->
+                <TextView
+                    android:text="Notes >"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:layout_marginTop="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
-            <GridLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:columnCount="2"
-                android:orientation="horizontal"
-                android:layout_marginTop="12dp"
-                android:alignmentMode="alignMargins"
-                android:columnOrderPreserved="false"
-                android:useDefaultMargins="true">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp">
 
-                <Button
-                    style="@style/FilterButton"
-                    android:text="MAD" />
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="160dp"
+                        android:src="@drawable/book_sample"
+                        android:layout_marginEnd="8dp" />
 
-                <Button
-                    style="@style/FilterButton"
-                    android:text="Seminar" />
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="160dp"
+                        android:src="@drawable/book_sample"
+                        android:layout_marginEnd="8dp" />
 
-                <Button
-                    style="@style/FilterButton"
-                    android:text="COA" />
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="160dp"
+                        android:src="@drawable/book_sample" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
 
-                <Button
-                    style="@style/FilterButton"
-                    android:text="Machine Learning" />
-            </GridLayout>
-
-            <!-- PYQs Section -->
-            <TextView
-                android:text="PYQs >"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                android:layout_marginTop="24dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+        <!-- Your original Bottom Navigation (100% preserved) -->
+        <LinearLayout
+            android:id="@+id/bottomNav"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/nav_bg"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp">
 
             <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp">
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/nav_item_active_bg"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
 
                 <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="160dp"
-                    android:src="@drawable/book_sample"
-                    android:layout_marginEnd="8dp" />
-
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="160dp"
-                    android:src="@drawable/book_sample"
-                    android:layout_marginEnd="8dp" />
-
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="160dp"
-                    android:src="@drawable/book_sample" />
+                    android:src="@drawable/ic_book"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:tint="#C5BFFF"/>
+                <TextView
+                    android:text="Resources"
+                    android:textColor="#C5BFFF"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
             </LinearLayout>
-
-            <!-- Notes Section -->
-            <TextView
-                android:text="Notes >"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                android:layout_marginTop="24dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
 
             <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp">
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
 
                 <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="160dp"
-                    android:src="@drawable/book_sample"
-                    android:layout_marginEnd="8dp" />
+                    android:src="@drawable/ic_groupstudy"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:tint="#A0A0A0"/>
+                <TextView
+                    android:text="Group Study"
+                    android:textColor="#A0A0A0"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
 
                 <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="160dp"
-                    android:src="@drawable/book_sample"
-                    android:layout_marginEnd="8dp" />
+                    android:src="@drawable/ic_collaborate"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:tint="#A0A0A0"/>
+                <TextView
+                    android:text="Collaborate"
+                    android:textColor="#A0A0A0"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/nav_practice"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
 
                 <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="160dp"
-                    android:src="@drawable/book_sample" />
+                    android:src="@drawable/ic_practice"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:tint="#A0A0A0"/>
+                <TextView
+                    android:text="Practice"
+                    android:textColor="#A0A0A0"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+    </RelativeLayout>
 
-    <!-- Bottom Navigation - Material 3 Style -->
-    <LinearLayout
-        android:id="@+id/bottomNav"
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:background="@drawable/nav_bg"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp">
-
-        <!-- Resources (Active) -->
-        <LinearLayout
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/nav_item_active_bg"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp">
-
-            <ImageView
-                android:src="@drawable/ic_book"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:tint="#C5BFFF"/>
-            <TextView
-                android:text="Resources"
-                android:textColor="#C5BFFF"
-                android:textSize="12sp"
-                android:fontFamily="sans-serif-medium"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"/>
-        </LinearLayout>
-
-        <!-- Group Study -->
-        <LinearLayout
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:src="@drawable/ic_groupstudy"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:tint="#A0A0A0"/>
-            <TextView
-                android:text="Group Study"
-                android:textColor="#A0A0A0"
-                android:textSize="12sp"
-                android:fontFamily="sans-serif"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"/>
-        </LinearLayout>
-
-        <!-- Collaborate -->
-        <LinearLayout
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:src="@drawable/ic_collaborate"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:tint="#A0A0A0"/>
-            <TextView
-                android:text="Collaborate"
-                android:textColor="#A0A0A0"
-                android:textSize="12sp"
-                android:fontFamily="sans-serif"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"/>
-        </LinearLayout>
-
-        <!-- Practice -->
-        <LinearLayout
-            android:id="@+id/nav_practice"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:src="@drawable/ic_practice"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:tint="#A0A0A0"/>
-            <TextView
-                android:text="Practice"
-                android:textColor="#A0A0A0"
-                android:textSize="12sp"
-                android:fontFamily="sans-serif"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"/>
-        </LinearLayout>
-    </LinearLayout>
-</RelativeLayout>
+    <!-- Only addition: NavigationView for sidebar -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#1E1A3A"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_menu"
+        app:itemTextColor="#FFFFFF"
+        app:itemIconTint="#FFFFFF"/>
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,22 +1,52 @@
-package com.example.myapplication;
+package com.example.myapplication; // Replace with your package name
 
-import android.content.Intent; // Add this import
 import android.os.Bundle;
-import android.widget.LinearLayout; // Add this import
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
+    private DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Change ID to match your bottom nav's Practice item
-        LinearLayout practiceNav = findViewById(R.id.nav_practice);
-        practiceNav.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, PracticeMainActivity.class));
+        // Initialize drawer
+        drawerLayout = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+
+        // Menu icon click to open drawer
+        findViewById(R.id.menu_icon).setOnClickListener(v ->
+                drawerLayout.openDrawer(GravityCompat.START));
+
+        // Handle menu item clicks
+        navigationView.setNavigationItemSelectedListener(item -> {
+            int id = item.getItemId();
+
+            if (id == R.id.nav_bookmarks) {
+                // Handle bookmarks
+            } else if (id == R.id.nav_turnitin) {
+                // Handle turnitin
+            } else if (id == R.id.nav_settings) {
+                // Handle settings
+            } else if (id == R.id.nav_logout) {
+                // Handle logout
+            }
+
+            drawerLayout.closeDrawer(GravityCompat.START);
+            return true;
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 }
