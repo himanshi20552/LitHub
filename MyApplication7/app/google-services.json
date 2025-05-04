@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1070866900274",
+    "firebase_url": "https://lithub-5bac1-default-rtdb.firebaseio.com",
+    "project_id": "lithub-5bac1",
+    "storage_bucket": "lithub-5bac1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070866900274:android:a2ec8b62509aef80aee32b",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwRDeTW_sConv16KRpXTK2xIQGfpDkk6o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
