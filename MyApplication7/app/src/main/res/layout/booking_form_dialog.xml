@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/form_card_bg">
+
+    <TextView
+        android:text="Book Your Cabin"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"/>
+
+
+    <EditText
+        android:id="@+id/en1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enrollment No.- Member 1 "
+        android:background="@drawable/field_bg"
+        android:padding="10dp"
+        android:inputType="number"
+        android:layout_marginBottom="12dp" />
+
+    <EditText
+        android:id="@+id/en2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enrollment No.- Member 2"
+        android:inputType="number"
+        android:background="@drawable/field_bg"
+        android:padding="10dp"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/en3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enrollment No.- Member 3"
+        android:background="@drawable/field_bg"
+        android:padding="10dp"
+        android:inputType="number"
+        android:layout_marginBottom="12dp" />
+
+    <EditText
+        android:id="@+id/en4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enrollment No.- Member 4"
+        android:background="@drawable/field_bg"
+        android:padding="10dp"
+        android:inputType="number"
+        android:layout_marginBottom="12dp" />
+    <EditText
+        android:id="@+id/ts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Time Slot"
+        android:background="@drawable/field_bg"
+        android:padding="10dp"
+        android:inputType="time"
+        android:layout_marginBottom="12dp" />
+
+
+    <Button
+        android:id="@+id/submit_booking_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit Booking"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/btn_filled" />
+</LinearLayout>
