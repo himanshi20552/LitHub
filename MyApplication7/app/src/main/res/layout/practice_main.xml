@@ -15,6 +15,7 @@
         android:gravity="center_vertical">
 
         <ImageView
+            android:id="@+id/menu_icon"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_menu" />
@@ -166,6 +167,7 @@
     </ScrollView>
 
     <!-- Bottom Navigation - Material 3 Style -->
+    <!-- Bottom Navigation -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_alignParentBottom="true"
@@ -177,8 +179,9 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp">
 
-        <!-- Resources -->
+        <!-- Resources Tab -->
         <LinearLayout
+            android:id="@+id/nav_resources"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_weight="1"
@@ -186,11 +189,13 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/nav_resources_icon"
                 android:src="@drawable/ic_book"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:tint="#A0A0A0"/>
             <TextView
+                android:id="@+id/nav_resources_text"
                 android:text="Resources"
                 android:textColor="#A0A0A0"
                 android:textSize="12sp"
@@ -199,8 +204,9 @@
                 android:layout_width="wrap_content"/>
         </LinearLayout>
 
-        <!-- Group Study -->
+        <!-- Group Study Tab -->
         <LinearLayout
+            android:id="@+id/nav_group_study"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_weight="1"
@@ -208,11 +214,13 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/nav_group_study_icon"
                 android:src="@drawable/ic_groupstudy"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:tint="#A0A0A0"/>
             <TextView
+                android:id="@+id/nav_group_study_text"
                 android:text="Group Study"
                 android:textColor="#A0A0A0"
                 android:textSize="12sp"
@@ -221,8 +229,9 @@
                 android:layout_width="wrap_content"/>
         </LinearLayout>
 
-        <!-- Collaborate -->
+        <!-- Collaborate Tab -->
         <LinearLayout
+            android:id="@+id/nav_collaborate"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_weight="1"
@@ -230,11 +239,13 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/nav_collaborate_icon"
                 android:src="@drawable/ic_collaborate"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:tint="#A0A0A0"/>
             <TextView
+                android:id="@+id/nav_collaborate_text"
                 android:text="Collaborate"
                 android:textColor="#A0A0A0"
                 android:textSize="12sp"
@@ -243,7 +254,7 @@
                 android:layout_width="wrap_content"/>
         </LinearLayout>
 
-        <!-- Practice (Active) -->
+        <!-- Practice Tab (Active) -->
         <LinearLayout
             android:id="@+id/nav_practice"
             android:orientation="vertical"
@@ -256,11 +267,13 @@
             android:paddingBottom="8dp">
 
             <ImageView
+                android:id="@+id/nav_practice_icon"
                 android:src="@drawable/ic_practice"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:tint="#C5BFFF"/>
             <TextView
+                android:id="@+id/nav_practice_text"
                 android:text="Practice"
                 android:textColor="#C5BFFF"
                 android:textSize="12sp"

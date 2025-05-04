@@ -3,29 +3,31 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class PracticeMainActivity extends AppCompatActivity {
+public class CollaborateActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.practice_main);
+        setContentView(R.layout.collaborate);
 
-        // Menu icon click (opens navigation drawer)
-        findViewById(R.id.menu_icon).setOnClickListener(v -> {
+        // WebView setup
+        WebView webView = findViewById(R.id.webViewTrello);
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setDomStorageEnabled(true);
+        webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl("https://trello.com");
+
+        // Initialize menu icon (now with proper ID)
+        View menuIcon = findViewById(R.id.menu_icon);
+        menuIcon.setOnClickListener(v -> {
+            // Open main activity which has the drawer
             startActivity(new Intent(this, MainActivity.class));
-        });
-
-        // Quiz card click listeners with no transition
-        findViewById(R.id.ml_quiz_card).setOnClickListener(v -> {
-            startActivity(new Intent(this, PracticeMLActivity.class));
-            overridePendingTransition(0, 0);  // Add this line to remove transition
-        });
-
-        findViewById(R.id.mad_quiz_card).setOnClickListener(v -> {
-            startActivity(new Intent(this, PracticeQuiz1Activity.class));
-            overridePendingTransition(0, 0);  // Add this line to remove transition
         });
 
         // Bottom Navigation Click Listeners
@@ -39,8 +41,8 @@ public class PracticeMainActivity extends AppCompatActivity {
             overridePendingTransition(0, 0);
         });
 
-        findViewById(R.id.nav_collaborate).setOnClickListener(v -> {
-            startActivity(new Intent(this, CollaborateActivity.class));
+        findViewById(R.id.nav_practice).setOnClickListener(v -> {
+            startActivity(new Intent(this, PracticeMainActivity.class));
             overridePendingTransition(0, 0);
         });
     }

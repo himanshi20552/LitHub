@@ -6,11 +6,13 @@
     android:background="#0A0325">
 
     <ScrollView
+        android:id="@+id/main_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottomNav">
 
         <LinearLayout
+            android:id="@+id/main_content_container"
             android:orientation="vertical"
             android:padding="16dp"
             android:layout_width="match_parent"
@@ -18,6 +20,7 @@
 
             <!-- Top bar -->
             <LinearLayout
+                android:id="@+id/top_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -25,12 +28,14 @@
                 android:layout_marginBottom="16dp">
 
                 <ImageView
+                    android:id="@+id/menu_icon"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginTop="12dp"
                     android:src="@drawable/ic_menu" />
 
                 <ImageView
+                    android:id="@+id/app_logo"
                     android:layout_width="130dp"
                     android:layout_height="60dp"
                     android:layout_marginTop="12dp"
@@ -40,6 +45,7 @@
 
             <!-- Search Bar -->
             <EditText
+                android:id="@+id/search_bar"
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
                 android:hint="  Search by title, author, or subject"
@@ -48,8 +54,10 @@
                 android:paddingStart="16dp"
                 android:textColorHint="#CCCCCC"
                 android:textColor="#FFFFFF" />
+
             <!-- Tab Buttons -->
             <LinearLayout
+                android:id="@+id/tab_container"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_margin="16dp"
@@ -77,15 +85,16 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <!-- Cards for Create/Join -->
-
+            <!-- Virtual Groups Cards -->
             <LinearLayout
+                android:id="@+id/virtual_groups_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <!-- Create Session Card -->
                 <LinearLayout
+                    android:id="@+id/create_session_card"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@drawable/bg_card"
@@ -95,6 +104,7 @@
                     android:layout_marginBottom="16dp">
 
                     <TextView
+                        android:id="@+id/create_session_initials"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:backgroundTint="#E6DFFF"
@@ -105,6 +115,7 @@
                         android:textSize="18sp" />
 
                     <LinearLayout
+                        android:id="@+id/create_session_info"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -112,6 +123,7 @@
                         android:layout_marginStart="12dp">
 
                         <TextView
+                            android:id="@+id/create_session_title"
                             android:text="Create new Session"
                             android:textColor="#000000"
                             android:textSize="16sp"
@@ -120,6 +132,7 @@
                             android:layout_height="wrap_content" />
 
                         <TextView
+                            android:id="@+id/create_session_subtitle"
                             android:text="virtual meeting session"
                             android:textColor="#666666"
                             android:textSize="13sp"
@@ -128,66 +141,72 @@
                     </LinearLayout>
 
                     <ImageView
+                        android:id="@+id/create_session_icon"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_video_call"
                         app:tint="#000000" />
-            </LinearLayout>
-
-            <!-- Join Session Card -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="@drawable/bg_card"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="12dp">
-
-                <TextView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:backgroundTint="#E6DFFF"
-                    android:background="@drawable/bg_circle"
-                    android:text="A"
-                    android:gravity="center"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginStart="12dp">
-
-                    <TextView
-                        android:text="Join a Session"
-                        android:textColor="#000000"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:text="join with others"
-                        android:textColor="#666666"
-                        android:textSize="13sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
                 </LinearLayout>
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_arrow_right"
-                    app:tint="#000000" />
+                <!-- Join Session Card -->
+                <LinearLayout
+                    android:id="@+id/join_session_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@drawable/bg_card"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:id="@+id/join_session_initials"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:backgroundTint="#E6DFFF"
+                        android:background="@drawable/bg_circle"
+                        android:text="A"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                    <LinearLayout
+                        android:id="@+id/join_session_info"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="12dp">
+
+                        <TextView
+                            android:id="@+id/join_session_title"
+                            android:text="Join a Session"
+                            android:textColor="#000000"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:id="@+id/join_session_subtitle"
+                            android:text="join with others"
+                            android:textColor="#666666"
+                            android:textSize="13sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/join_session_icon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_arrow_right"
+                        app:tint="#000000" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-        </LinearLayout>
-
     </ScrollView>
 
-    <!-- Bottom Navigation - Material 3 Style -->
+    <!-- Bottom Navigation -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_alignParentBottom="true"
@@ -199,8 +218,9 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp">
 
-        <!-- Resources -->
+        <!-- Resources Tab -->
         <LinearLayout
+            android:id="@+id/nav_resources"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_weight="1"
@@ -208,11 +228,13 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/nav_resources_icon"
                 android:src="@drawable/ic_book"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:tint="#A0A0A0"/>
             <TextView
+                android:id="@+id/nav_resources_text"
                 android:text="Resources"
                 android:textColor="#A0A0A0"
                 android:textSize="12sp"
@@ -221,8 +243,9 @@
                 android:layout_width="wrap_content"/>
         </LinearLayout>
 
-        <!-- Group Study (Active) -->
+        <!-- Group Study Tab (Active) -->
         <LinearLayout
+            android:id="@+id/nav_group_study"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_weight="1"
@@ -233,11 +256,13 @@
             android:paddingBottom="8dp">
 
             <ImageView
+                android:id="@+id/nav_group_study_icon"
                 android:src="@drawable/ic_groupstudy"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:tint="#C5BFFF"/>
             <TextView
+                android:id="@+id/nav_group_study_text"
                 android:text="Group Study"
                 android:textColor="#C5BFFF"
                 android:textSize="12sp"
@@ -246,8 +271,9 @@
                 android:layout_width="wrap_content"/>
         </LinearLayout>
 
-        <!-- Collaborate -->
+        <!-- Collaborate Tab -->
         <LinearLayout
+            android:id="@+id/nav_collaborate"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_weight="1"
@@ -255,11 +281,13 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/nav_collaborate_icon"
                 android:src="@drawable/ic_collaborate"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:tint="#A0A0A0"/>
             <TextView
+                android:id="@+id/nav_collaborate_text"
                 android:text="Collaborate"
                 android:textColor="#A0A0A0"
                 android:textSize="12sp"
@@ -268,7 +296,7 @@
                 android:layout_width="wrap_content"/>
         </LinearLayout>
 
-        <!-- Practice -->
+        <!-- Practice Tab -->
         <LinearLayout
             android:id="@+id/nav_practice"
             android:orientation="vertical"
@@ -278,11 +306,13 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/nav_practice_icon"
                 android:src="@drawable/ic_practice"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:tint="#A0A0A0"/>
             <TextView
+                android:id="@+id/nav_practice_text"
                 android:text="Practice"
                 android:textColor="#A0A0A0"
                 android:textSize="12sp"
@@ -291,5 +321,4 @@
                 android:layout_width="wrap_content"/>
         </LinearLayout>
     </LinearLayout>
-
 </RelativeLayout>

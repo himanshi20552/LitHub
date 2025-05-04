@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <!-- Your original content (unchanged) -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,6 +25,7 @@
 
                 <!-- Top bar -->
                 <LinearLayout
+                    android:id="@+id/topBar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -40,6 +40,7 @@
                         android:src="@drawable/ic_menu" />
 
                     <ImageView
+                        android:id="@+id/app_logo"
                         android:layout_width="130dp"
                         android:layout_height="60dp"
                         android:layout_marginTop="12dp"
@@ -49,6 +50,7 @@
 
                 <!-- Search Bar -->
                 <EditText
+                    android:id="@+id/search_bar"
                     android:layout_width="match_parent"
                     android:layout_height="43dp"
                     android:hint="  Search by title, author, or subject"
@@ -60,6 +62,7 @@
 
                 <!-- Books Section -->
                 <TextView
+                    android:id="@+id/books_header"
                     android:text="Books >"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp"
@@ -68,6 +71,7 @@
                     android:layout_width="wrap_content"/>
 
                 <HorizontalScrollView
+                    android:id="@+id/books_scroll"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -75,22 +79,27 @@
                     android:importantForAccessibility="no">
 
                     <LinearLayout
+                        android:id="@+id/books_container"
                         android:orientation="horizontal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
                         <ImageView
+                            android:id="@+id/book_1"
                             android:layout_width="120dp"
                             android:layout_height="160dp"
                             android:src="@drawable/book_sample"
                             android:layout_marginEnd="8dp" />
 
                         <ImageView
+                            android:id="@+id/book_2"
                             android:layout_width="120dp"
                             android:layout_height="160dp"
                             android:src="@drawable/book_sample"
                             android:layout_marginEnd="8dp" />
+
                         <ImageView
+                            android:id="@+id/book_3"
                             android:layout_width="120dp"
                             android:layout_height="160dp"
                             android:src="@drawable/book_sample"
@@ -100,6 +109,7 @@
 
                 <!-- Filter by Course -->
                 <TextView
+                    android:id="@+id/filter_header"
                     android:text="Filter by course >"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp"
@@ -108,6 +118,7 @@
                     android:layout_height="wrap_content"/>
 
                 <GridLayout
+                    android:id="@+id/filter_grid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:columnCount="2"
@@ -118,24 +129,29 @@
                     android:useDefaultMargins="true">
 
                     <Button
+                        android:id="@+id/filter_mad"
                         style="@style/FilterButton"
                         android:text="MAD" />
 
                     <Button
+                        android:id="@+id/filter_seminar"
                         style="@style/FilterButton"
                         android:text="Seminar" />
 
                     <Button
+                        android:id="@+id/filter_coa"
                         style="@style/FilterButton"
                         android:text="COA" />
 
                     <Button
+                        android:id="@+id/filter_ml"
                         style="@style/FilterButton"
                         android:text="Machine Learning" />
                 </GridLayout>
 
                 <!-- PYQs Section -->
                 <TextView
+                    android:id="@+id/pyq_header"
                     android:text="PYQs >"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp"
@@ -144,24 +160,28 @@
                     android:layout_height="wrap_content"/>
 
                 <LinearLayout
+                    android:id="@+id/pyq_container"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp">
 
                     <ImageView
+                        android:id="@+id/pyq_1"
                         android:layout_width="120dp"
                         android:layout_height="160dp"
                         android:src="@drawable/book_sample"
                         android:layout_marginEnd="8dp" />
 
                     <ImageView
+                        android:id="@+id/pyq_2"
                         android:layout_width="120dp"
                         android:layout_height="160dp"
                         android:src="@drawable/book_sample"
                         android:layout_marginEnd="8dp" />
 
                     <ImageView
+                        android:id="@+id/pyq_3"
                         android:layout_width="120dp"
                         android:layout_height="160dp"
                         android:src="@drawable/book_sample" />
@@ -169,6 +189,7 @@
 
                 <!-- Notes Section -->
                 <TextView
+                    android:id="@+id/notes_header"
                     android:text="Notes >"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp"
@@ -177,24 +198,28 @@
                     android:layout_height="wrap_content"/>
 
                 <LinearLayout
+                    android:id="@+id/notes_container"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp">
 
                     <ImageView
+                        android:id="@+id/note_1"
                         android:layout_width="120dp"
                         android:layout_height="160dp"
                         android:src="@drawable/book_sample"
                         android:layout_marginEnd="8dp" />
 
                     <ImageView
+                        android:id="@+id/note_2"
                         android:layout_width="120dp"
                         android:layout_height="160dp"
                         android:src="@drawable/book_sample"
                         android:layout_marginEnd="8dp" />
 
                     <ImageView
+                        android:id="@+id/note_3"
                         android:layout_width="120dp"
                         android:layout_height="160dp"
                         android:src="@drawable/book_sample" />
@@ -202,7 +227,7 @@
             </LinearLayout>
         </ScrollView>
 
-        <!-- Your original Bottom Navigation (100% preserved) -->
+        <!-- Bottom Navigation -->
         <LinearLayout
             android:id="@+id/bottomNav"
             android:layout_alignParentBottom="true"
@@ -214,7 +239,9 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp">
 
+            <!-- Resources Tab -->
             <LinearLayout
+                android:id="@+id/nav_resources"
                 android:orientation="vertical"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -225,11 +252,13 @@
                 android:paddingBottom="8dp">
 
                 <ImageView
+                    android:id="@+id/nav_resources_icon"
                     android:src="@drawable/ic_book"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:tint="#C5BFFF"/>
                 <TextView
+                    android:id="@+id/nav_resources_text"
                     android:text="Resources"
                     android:textColor="#C5BFFF"
                     android:textSize="12sp"
@@ -238,7 +267,9 @@
                     android:layout_width="wrap_content"/>
             </LinearLayout>
 
+            <!-- Group Study Tab -->
             <LinearLayout
+                android:id="@+id/nav_group_study"
                 android:orientation="vertical"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -246,11 +277,13 @@
                 android:layout_height="match_parent">
 
                 <ImageView
+                    android:id="@+id/nav_group_study_icon"
                     android:src="@drawable/ic_groupstudy"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:tint="#A0A0A0"/>
                 <TextView
+                    android:id="@+id/nav_group_study_text"
                     android:text="Group Study"
                     android:textColor="#A0A0A0"
                     android:textSize="12sp"
@@ -259,7 +292,9 @@
                     android:layout_width="wrap_content"/>
             </LinearLayout>
 
+            <!-- Collaborate Tab -->
             <LinearLayout
+                android:id="@+id/nav_collaborate"
                 android:orientation="vertical"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -267,11 +302,13 @@
                 android:layout_height="match_parent">
 
                 <ImageView
+                    android:id="@+id/nav_collaborate_icon"
                     android:src="@drawable/ic_collaborate"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:tint="#A0A0A0"/>
                 <TextView
+                    android:id="@+id/nav_collaborate_text"
                     android:text="Collaborate"
                     android:textColor="#A0A0A0"
                     android:textSize="12sp"
@@ -280,6 +317,7 @@
                     android:layout_width="wrap_content"/>
             </LinearLayout>
 
+            <!-- Practice Tab -->
             <LinearLayout
                 android:id="@+id/nav_practice"
                 android:orientation="vertical"
@@ -289,11 +327,13 @@
                 android:layout_height="match_parent">
 
                 <ImageView
+                    android:id="@+id/nav_practice_icon"
                     android:src="@drawable/ic_practice"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:tint="#A0A0A0"/>
                 <TextView
+                    android:id="@+id/nav_practice_text"
                     android:text="Practice"
                     android:textColor="#A0A0A0"
                     android:textSize="12sp"
@@ -304,7 +344,7 @@
         </LinearLayout>
     </RelativeLayout>
 
-    <!-- Only addition: NavigationView for sidebar -->
+    <!-- Navigation View for sidebar -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="280dp"

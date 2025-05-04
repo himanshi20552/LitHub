@@ -6,11 +6,13 @@
     android:background="#0A0325">
 
     <ScrollView
+        android:id="@+id/main_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottomNav">
 
         <LinearLayout
+            android:id="@+id/main_content_container"
             android:orientation="vertical"
             android:padding="16dp"
             android:layout_width="match_parent"
@@ -18,6 +20,7 @@
 
             <!-- Top bar -->
             <LinearLayout
+                android:id="@+id/top_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -25,12 +28,14 @@
                 android:layout_marginBottom="16dp">
 
                 <ImageView
+                    android:id="@+id/menu_icon"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginTop="12dp"
                     android:src="@drawable/ic_menu" />
 
                 <ImageView
+                    android:id="@+id/app_logo"
                     android:layout_width="130dp"
                     android:layout_height="60dp"
                     android:layout_marginTop="12dp"
@@ -40,6 +45,7 @@
 
             <!-- Search Bar -->
             <EditText
+                android:id="@+id/search_bar"
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
                 android:hint="  Search by title, author, or subject"
@@ -52,7 +58,6 @@
             <!-- Toggle Buttons -->
             <RadioGroup
                 android:id="@+id/toggle_group"
-                android:layout_below="@id/search_bar"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:orientation="horizontal"
@@ -62,21 +67,20 @@
                 android:padding="4dp">
 
                 <RadioButton
-                    android:id="@+id/cabin_booking"
+                    android:id="@+id/cabin_booking_tab"
                     style="@style/ToggleTab"
                     android:text="Cabin Booking"
                     android:checked="true" />
 
                 <RadioButton
-                    android:id="@+id/virtual_groups"
+                    android:id="@+id/virtual_groups_tab"
                     style="@style/ToggleTab"
                     android:text="Virtual Groups" />
             </RadioGroup>
 
             <!-- Section Title -->
             <TextView
-                android:id="@+id/title"
-                android:layout_below="@id/toggle_group"
+                android:id="@+id/section_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Available Cabins"
@@ -87,20 +91,20 @@
 
             <!-- Cabin List -->
             <ScrollView
-                android:layout_below="@id/title"
-                android:layout_above="@+id/bottom_navigation"
+                android:id="@+id/cabin_list_scroll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp">
 
                 <LinearLayout
-                    android:id="@+id/cabin_list"
+                    android:id="@+id/cabin_list_container"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <!-- Cabin 1 -->
                     <LinearLayout
+                        android:id="@+id/cabin_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -109,6 +113,7 @@
                         android:layout_marginBottom="4dp">
 
                         <ImageView
+                            android:id="@+id/cabin_1_icon"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_cabin"
@@ -116,12 +121,14 @@
                             app:tint="#FFFFFF" />
 
                         <LinearLayout
+                            android:id="@+id/cabin_1_info"
                             android:orientation="vertical"
                             android:layout_weight="1"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content">
 
                             <TextView
+                                android:id="@+id/cabin_1_name"
                                 android:text="Cabin 1"
                                 android:textColor="#FFFFFF"
                                 android:textStyle="bold"
@@ -130,6 +137,7 @@
                                 android:layout_height="wrap_content" />
 
                             <TextView
+                                android:id="@+id/cabin_1_capacity"
                                 android:text="Capacity: 4 people"
                                 android:textColor="#AAAAAA"
                                 android:textSize="12sp"
@@ -138,6 +146,7 @@
                         </LinearLayout>
 
                         <Button
+                            android:id="@+id/cabin_1_book_btn"
                             android:layout_width="wrap_content"
                             android:layout_height="36dp"
                             android:text="Book Cabin"
@@ -149,6 +158,7 @@
 
                     <!-- Cabin 2 -->
                     <LinearLayout
+                        android:id="@+id/cabin_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -157,6 +167,7 @@
                         android:layout_marginBottom="4dp">
 
                         <ImageView
+                            android:id="@+id/cabin_2_icon"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_cabin"
@@ -164,12 +175,14 @@
                             app:tint="#FFFFFF" />
 
                         <LinearLayout
+                            android:id="@+id/cabin_2_info"
                             android:orientation="vertical"
                             android:layout_weight="1"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content">
 
                             <TextView
+                                android:id="@+id/cabin_2_name"
                                 android:text="Cabin 2"
                                 android:textColor="#FFFFFF"
                                 android:textStyle="bold"
@@ -178,6 +191,7 @@
                                 android:layout_height="wrap_content" />
 
                             <TextView
+                                android:id="@+id/cabin_2_capacity"
                                 android:text="Capacity: 6 people"
                                 android:textColor="#AAAAAA"
                                 android:textSize="12sp"
@@ -186,6 +200,7 @@
                         </LinearLayout>
 
                         <Button
+                            android:id="@+id/cabin_2_book_btn"
                             android:layout_width="wrap_content"
                             android:layout_height="36dp"
                             android:text="Book Cabin"
@@ -199,7 +214,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- Bottom Navigation - Material 3 Style -->
+    <!-- Bottom Navigation -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_alignParentBottom="true"
@@ -211,8 +226,9 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp">
 
-        <!-- Resources -->
+        <!-- Resources Tab -->
         <LinearLayout
+            android:id="@+id/nav_resources"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_weight="1"
@@ -220,11 +236,13 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/nav_resources_icon"
                 android:src="@drawable/ic_book"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:tint="#A0A0A0"/>
             <TextView
+                android:id="@+id/nav_resources_text"
                 android:text="Resources"
                 android:textColor="#A0A0A0"
                 android:textSize="12sp"
@@ -233,8 +251,9 @@
                 android:layout_width="wrap_content"/>
         </LinearLayout>
 
-        <!-- Group Study (Active) -->
+        <!-- Group Study Tab (Active) -->
         <LinearLayout
+            android:id="@+id/nav_group_study"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_weight="1"
@@ -245,11 +264,13 @@
             android:paddingBottom="8dp">
 
             <ImageView
+                android:id="@+id/nav_group_study_icon"
                 android:src="@drawable/ic_groupstudy"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:tint="#C5BFFF"/>
             <TextView
+                android:id="@+id/nav_group_study_text"
                 android:text="Group Study"
                 android:textColor="#C5BFFF"
                 android:textSize="12sp"
@@ -258,8 +279,9 @@
                 android:layout_width="wrap_content"/>
         </LinearLayout>
 
-        <!-- Collaborate -->
+        <!-- Collaborate Tab -->
         <LinearLayout
+            android:id="@+id/nav_collaborate"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_weight="1"
@@ -267,11 +289,13 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/nav_collaborate_icon"
                 android:src="@drawable/ic_collaborate"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:tint="#A0A0A0"/>
             <TextView
+                android:id="@+id/nav_collaborate_text"
                 android:text="Collaborate"
                 android:textColor="#A0A0A0"
                 android:textSize="12sp"
@@ -280,7 +304,7 @@
                 android:layout_width="wrap_content"/>
         </LinearLayout>
 
-        <!-- Practice -->
+        <!-- Practice Tab -->
         <LinearLayout
             android:id="@+id/nav_practice"
             android:orientation="vertical"
@@ -290,11 +314,13 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/nav_practice_icon"
                 android:src="@drawable/ic_practice"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:tint="#A0A0A0"/>
             <TextView
+                android:id="@+id/nav_practice_text"
                 android:text="Practice"
                 android:textColor="#A0A0A0"
                 android:textSize="12sp"

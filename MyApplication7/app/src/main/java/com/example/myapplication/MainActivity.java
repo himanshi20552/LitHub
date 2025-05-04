@@ -1,7 +1,8 @@
-package com.example.myapplication; // Replace with your package name
+package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -23,23 +24,40 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.menu_icon).setOnClickListener(v ->
                 drawerLayout.openDrawer(GravityCompat.START));
 
-        // Handle menu item clicks
+        // Handle sidebar menu item clicks
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
-
             if (id == R.id.nav_bookmarks) {
-                // Handle bookmarks (to be implemented)
+                // Handle bookmarks
             } else if (id == R.id.nav_turnitin) {
-                // Launch Turnitin Activity
-                startActivity(new Intent(MainActivity.this, TurnitinActivity.class));
+                startActivity(new Intent(this, TurnitinActivity.class));
             } else if (id == R.id.nav_settings) {
-                // Handle settings (to be implemented)
+                // Handle settings
             } else if (id == R.id.nav_logout) {
-                // Handle logout (to be implemented)
+                // Handle logout
             }
-
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
+        });
+
+        // Bottom Navigation Click Listeners with no transition
+        findViewById(R.id.nav_resources).setOnClickListener(v -> {
+            // Already in MainActivity
+        });
+
+        findViewById(R.id.nav_group_study).setOnClickListener(v -> {
+            startActivity(new Intent(this, CabinBookingActivity.class));
+            overridePendingTransition(0, 0); // Disable transition
+        });
+
+        findViewById(R.id.nav_collaborate).setOnClickListener(v -> {
+            startActivity(new Intent(this, CollaborateActivity.class));
+            overridePendingTransition(0, 0); // Disable transition
+        });
+
+        findViewById(R.id.nav_practice).setOnClickListener(v -> {
+            startActivity(new Intent(this, PracticeMainActivity.class));
+            overridePendingTransition(0, 0); // Disable transition
         });
     }
 
@@ -49,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+            overridePendingTransition(0, 0); // Disable back transition too
         }
     }
 }

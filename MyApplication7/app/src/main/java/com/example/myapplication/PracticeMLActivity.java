@@ -5,27 +5,17 @@ import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class PracticeMainActivity extends AppCompatActivity {
+public class PracticeMLActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.practice_main);
+        setContentView(R.layout.practice_ml);
 
         // Menu icon click (opens navigation drawer)
         findViewById(R.id.menu_icon).setOnClickListener(v -> {
+            // If using same MainActivity drawer, launch MainActivity
             startActivity(new Intent(this, MainActivity.class));
-        });
-
-        // Quiz card click listeners with no transition
-        findViewById(R.id.ml_quiz_card).setOnClickListener(v -> {
-            startActivity(new Intent(this, PracticeMLActivity.class));
-            overridePendingTransition(0, 0);  // Add this line to remove transition
-        });
-
-        findViewById(R.id.mad_quiz_card).setOnClickListener(v -> {
-            startActivity(new Intent(this, PracticeQuiz1Activity.class));
-            overridePendingTransition(0, 0);  // Add this line to remove transition
         });
 
         // Bottom Navigation Click Listeners
@@ -48,6 +38,6 @@ public class PracticeMainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(0, 0);
+        overridePendingTransition(0, 0); // Remove back transition animation
     }
 }
