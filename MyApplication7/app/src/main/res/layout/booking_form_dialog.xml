@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/form_card_bg">
+
+    <TextView
+        android:text="Book Your Cabin"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"/>
+
+
+    <EditText
+        android:id="@+id/en1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enrollment No.- Member 1 "
+        android:background="@drawable/field_bg"
+        android:padding="10dp"
+        android:inputType="number"
+        android:layout_marginBottom="12dp" />
+
+    <EditText
+        android:id="@+id/en2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enrollment No.- Member 2"
+        android:inputType="number"
+        android:background="@drawable/field_bg"
+        android:padding="10dp"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/en3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enrollment No.- Member 3"
+        android:background="@drawable/field_bg"
+        android:padding="10dp"
+        android:inputType="number"
+        android:layout_marginBottom="12dp" />
+
+    <EditText
+        android:id="@+id/en4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enrollment No.- Member 4"
+        android:background="@drawable/field_bg"
+        android:padding="10dp"
+        android:inputType="number"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Time Range"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/start_time_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Start Time"
+        android:textColor="#000000"
+        android:background="@drawable/field_bg"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/selected_start_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No start time selected"
+        android:textColor="#666666"
+        android:layout_marginBottom="12dp"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/end_time_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select End Time"
+        android:textColor="#000000"
+        android:background="@drawable/field_bg"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/selected_end_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No end time selected"
+        android:textColor="#666666"
+        android:layout_marginBottom="12dp"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/submit_booking_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit Booking"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/btn_filled" />
+</LinearLayout>

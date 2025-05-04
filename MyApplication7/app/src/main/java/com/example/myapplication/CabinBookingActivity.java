@@ -1,17 +1,32 @@
 package com.example.myapplication;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.RadioGroup;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CabinBookingActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
+    private RecyclerView recyclerView;
+    private List<Cabin> cabinList = new ArrayList<>();
+    private CabinAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,13 +38,14 @@ public class CabinBookingActivity extends AppCompatActivity {
         NavigationView navigationView = findViewById(R.id.nav_view);
 
         // Initialize views
-        Button cabin1BookBtn = findViewById(R.id.cabin_1_book_btn);
-        Button cabin2BookBtn = findViewById(R.id.cabin_2_book_btn);
         RadioGroup toggleGroup = findViewById(R.id.toggle_group);
+        recyclerView = findViewById(R.id.recyclerViewCabins);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Cabin booking buttons
-        cabin1BookBtn.setOnClickListener(v -> bookCabin(1));
-        cabin2BookBtn.setOnClickListener(v -> bookCabin(2));
+        adapter = new CabinAdapter(cabinList, this);
+        recyclerView.setAdapter(adapter);
+
+        loadCabinsFromFirebase();
 
         // Toggle between Cabin Booking and Virtual Groups
         toggleGroup.setOnCheckedChangeListener((group, checkedId) -> {
@@ -75,17 +91,55 @@ public class CabinBookingActivity extends AppCompatActivity {
             overridePendingTransition(0, 0);
         });
     }
+    private void loadCabinsFromFirebase() {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("cabins");
+        ref.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                try {
+                    cabinList.clear();
+                    System.out.println("Firebase data received. Number of children: " + snapshot.getChildrenCount());
+                    
+                    for (DataSnapshot data : snapshot.getChildren()) {
+                        try {
+                            System.out.println("Processing cabin: " + data.getKey());
+                            Cabin cabin = new Cabin();
+                            cabin.name = data.child("name").getValue(String.class);
+                            Object capacityObj = data.child("capacity").getValue();
+                            cabin.setCapacity(capacityObj);
+                            cabin.isBooked = Boolean.TRUE.equals(data.child("isBooked").getValue(Boolean.class));
+                            
+                            if (cabin.name != null && cabin.capacity != null) {
+                                System.out.println("Cabin loaded - Name: " + cabin.name + ", Capacity: " + cabin.capacity + ", Booked: " + cabin.isBooked);
+                                if (!cabin.isBooked) {
+                                    cabinList.add(cabin);
+                                }
+                            } else {
+                                System.out.println("Failed to load cabin data for key: " + data.getKey() + " - Missing required fields");
+                            }
+                        } catch (Exception e) {
+                            System.out.println("Error processing cabin " + data.getKey() + ": " + e.getMessage());
+                            e.printStackTrace();
+                        }
+                    }
+                    
+                    System.out.println("Total cabins loaded: " + cabinList.size());
+                    adapter.notifyDataSetChanged();
+                } catch (Exception e) {
+                    System.out.println("Error loading cabins: " + e.getMessage());
+                    e.printStackTrace();
+                }
+            }
 
-    private void bookCabin(int cabinNumber) {
-        new android.app.AlertDialog.Builder(this)
-                .setTitle("Confirm Booking")
-                .setMessage("Book Cabin " + cabinNumber + "?")
-                .setPositiveButton("Book", (dialog, which) -> {
-                    // Handle successful booking
-                })
-                .setNegativeButton("Cancel", null)
-                .show();
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                System.out.println("Firebase error: " + error.getMessage());
+                error.toException().printStackTrace();
+            }
+        });
     }
+
 
     @Override
     public void onBackPressed() {
@@ -96,4 +150,6 @@ public class CabinBookingActivity extends AppCompatActivity {
             overridePendingTransition(0, 0);
         }
     }
+
 }
+
