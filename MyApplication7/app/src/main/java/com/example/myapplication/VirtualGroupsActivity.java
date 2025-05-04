@@ -4,26 +4,51 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import com.google.android.material.navigation.NavigationView;
 
 public class VirtualGroupsActivity extends AppCompatActivity {
+    private DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.virtualgroups);
 
+        // Initialize drawer
+        drawerLayout = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+
         // Initialize views
         View createSessionCard = findViewById(R.id.create_session_card);
         View joinSessionCard = findViewById(R.id.join_session_card);
         View tabCabin = findViewById(R.id.tab_cabin);
-        View menuIcon = findViewById(R.id.menu_icon);
-
-        // Card click listeners
 
         // Tab switch listener
         tabCabin.setOnClickListener(v -> {
             startActivity(new Intent(this, CabinBookingActivity.class));
             overridePendingTransition(0, 0);
+        });
+
+        // Menu icon click to open drawer
+        findViewById(R.id.menu_icon).setOnClickListener(v ->
+                drawerLayout.openDrawer(GravityCompat.START));
+
+        // Handle navigation item clicks
+        navigationView.setNavigationItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.nav_bookmarks) {
+                // Handle bookmarks
+            } else if (id == R.id.nav_turnitin) {
+                startActivity(new Intent(this, TurnitinActivity.class));
+            } else if (id == R.id.nav_settings) {
+                // Handle settings
+            } else if (id == R.id.nav_logout) {
+                // Handle logout
+            }
+            drawerLayout.closeDrawer(GravityCompat.START);
+            return true;
         });
 
         // Bottom Navigation Click Listeners
@@ -41,17 +66,15 @@ public class VirtualGroupsActivity extends AppCompatActivity {
             startActivity(new Intent(this, PracticeMainActivity.class));
             overridePendingTransition(0, 0);
         });
-
-        // Menu icon click (opens navigation drawer)
-        menuIcon.setOnClickListener(v -> {
-            // If using same MainActivity drawer, launch MainActivity
-            startActivity(new Intent(this, MainActivity.class));
-        });
     }
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        overridePendingTransition(0, 0); // Remove back transition animation
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+            overridePendingTransition(0, 0);
+        }
     }
 }

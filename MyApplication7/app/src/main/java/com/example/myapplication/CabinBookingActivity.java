@@ -6,19 +6,26 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import com.google.android.material.navigation.NavigationView;
 
 public class CabinBookingActivity extends AppCompatActivity {
+    private DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cabinbooking);
 
+        // Initialize drawer
+        drawerLayout = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+
         // Initialize views
         Button cabin1BookBtn = findViewById(R.id.cabin_1_book_btn);
         Button cabin2BookBtn = findViewById(R.id.cabin_2_book_btn);
         RadioGroup toggleGroup = findViewById(R.id.toggle_group);
-        View menuIcon = findViewById(R.id.menu_icon);
 
         // Cabin booking buttons
         cabin1BookBtn.setOnClickListener(v -> bookCabin(1));
@@ -27,11 +34,29 @@ public class CabinBookingActivity extends AppCompatActivity {
         // Toggle between Cabin Booking and Virtual Groups
         toggleGroup.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == R.id.virtual_groups_tab) {
-                // Switch to Virtual Groups view
                 startActivity(new Intent(this, VirtualGroupsActivity.class));
-                overridePendingTransition(0, 0); // Remove transition animation
+                overridePendingTransition(0, 0);
             }
-            // Stay on current activity if Cabin Booking is selected
+        });
+
+        // Menu icon click to open drawer
+        findViewById(R.id.menu_icon).setOnClickListener(v ->
+                drawerLayout.openDrawer(GravityCompat.START));
+
+        // Handle navigation item clicks
+        navigationView.setNavigationItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.nav_bookmarks) {
+                // Handle bookmarks
+            } else if (id == R.id.nav_turnitin) {
+                startActivity(new Intent(this, TurnitinActivity.class));
+            } else if (id == R.id.nav_settings) {
+                // Handle settings
+            } else if (id == R.id.nav_logout) {
+                // Handle logout
+            }
+            drawerLayout.closeDrawer(GravityCompat.START);
+            return true;
         });
 
         // Bottom Navigation Click Listeners
@@ -49,18 +74,9 @@ public class CabinBookingActivity extends AppCompatActivity {
             startActivity(new Intent(this, PracticeMainActivity.class));
             overridePendingTransition(0, 0);
         });
-
-        // Menu icon opens the navigation drawer
-        menuIcon.setOnClickListener(v -> {
-            // If using same MainActivity drawer, you may need to implement this differently
-            // For now launching MainActivity which has the drawer
-            startActivity(new Intent(this, MainActivity.class));
-        });
     }
 
     private void bookCabin(int cabinNumber) {
-        // Implement your cabin booking logic here
-        // Example: Show confirmation dialog
         new android.app.AlertDialog.Builder(this)
                 .setTitle("Confirm Booking")
                 .setMessage("Book Cabin " + cabinNumber + "?")
@@ -73,7 +89,11 @@ public class CabinBookingActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        overridePendingTransition(0, 0); // Remove back transition animation
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+            overridePendingTransition(0, 0);
+        }
     }
 }
