@@ -97,127 +97,13 @@
                     android:layout_marginBottom="8dp" />
 
                 <!-- Cabin List -->
-                <ScrollView
-                    android:id="@+id/cabin_list_scroll"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewCabins"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp">
+                    android:clipToPadding="false"
+                    android:padding="8dp"/>
 
-                    <LinearLayout
-                        android:id="@+id/cabin_list_container"
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <!-- Cabin 1 -->
-                        <LinearLayout
-                            android:id="@+id/cabin_1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:paddingVertical="12dp"
-                            android:gravity="center_vertical"
-                            android:layout_marginBottom="4dp">
-
-                            <ImageView
-                                android:id="@+id/cabin_1_icon"
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:src="@drawable/ic_cabin"
-                                android:layout_marginEnd="12dp"
-                                app:tint="#FFFFFF" />
-
-                            <LinearLayout
-                                android:id="@+id/cabin_1_info"
-                                android:orientation="vertical"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content">
-
-                                <TextView
-                                    android:id="@+id/cabin_1_name"
-                                    android:text="Cabin 1"
-                                    android:textColor="#FFFFFF"
-                                    android:textStyle="bold"
-                                    android:textSize="14sp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content" />
-
-                                <TextView
-                                    android:id="@+id/cabin_1_capacity"
-                                    android:text="Capacity: 4 people"
-                                    android:textColor="#AAAAAA"
-                                    android:textSize="12sp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content" />
-                            </LinearLayout>
-
-                            <Button
-                                android:id="@+id/cabin_1_book_btn"
-                                android:layout_width="wrap_content"
-                                android:layout_height="36dp"
-                                android:text="Book Cabin"
-                                android:textSize="12sp"
-                                android:paddingHorizontal="12dp"
-                                android:textColor="#C5BFFF"
-                                android:background="@drawable/btn_outline" />
-                        </LinearLayout>
-
-                        <!-- Cabin 2 -->
-                        <LinearLayout
-                            android:id="@+id/cabin_2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:paddingVertical="12dp"
-                            android:gravity="center_vertical"
-                            android:layout_marginBottom="4dp">
-
-                            <ImageView
-                                android:id="@+id/cabin_2_icon"
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:src="@drawable/ic_cabin"
-                                android:layout_marginEnd="12dp"
-                                app:tint="#FFFFFF" />
-
-                            <LinearLayout
-                                android:id="@+id/cabin_2_info"
-                                android:orientation="vertical"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content">
-
-                                <TextView
-                                    android:id="@+id/cabin_2_name"
-                                    android:text="Cabin 2"
-                                    android:textColor="#FFFFFF"
-                                    android:textStyle="bold"
-                                    android:textSize="14sp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content" />
-
-                                <TextView
-                                    android:id="@+id/cabin_2_capacity"
-                                    android:text="Capacity: 6 people"
-                                    android:textColor="#AAAAAA"
-                                    android:textSize="12sp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content" />
-                            </LinearLayout>
-
-                            <Button
-                                android:id="@+id/cabin_2_book_btn"
-                                android:layout_width="wrap_content"
-                                android:layout_height="36dp"
-                                android:text="Book Cabin"
-                                android:textSize="12sp"
-                                android:paddingHorizontal="12dp"
-                                android:textColor="#C5BFFF"
-                                android:background="@drawable/btn_outline" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </ScrollView>
             </LinearLayout>
         </ScrollView>
 
