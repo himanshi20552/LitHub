@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Semester"
+            android:textStyle="bold"
+            android:textColor="#0A0325"
+            android:textSize="16sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox android:id="@+id/sem1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1"/>
+            <CheckBox android:id="@+id/sem2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2"/>
+            <CheckBox android:id="@+id/sem3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3"/>
+            <CheckBox android:id="@+id/sem4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="4"/>
+            <CheckBox android:id="@+id/sem5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="5"/>
+            <CheckBox android:id="@+id/sem6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="6"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Course"
+            android:textStyle="bold"
+            android:textColor="#0A0325"
+            android:layout_marginTop="12dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox android:id="@+id/course_btech" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="BTech"/>
+            <CheckBox android:id="@+id/course_bba" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="BBA"/>
+            <CheckBox android:id="@+id/course_ballb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="BA LLB"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subjects"
+            android:textStyle="bold"
+            android:textColor="#0A0325"
+            android:layout_marginTop="12dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox android:id="@+id/subject_mad" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MAD"/>
+            <CheckBox android:id="@+id/subject_coa" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="COA"/>
+            <CheckBox android:id="@+id/subject_se" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Software Engineering"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox android:id="@+id/subject_ml" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Machine Learning"/>
+            <CheckBox android:id="@+id/subject_fdl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="FDL"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Year"
+            android:textStyle="bold"
+            android:textColor="#0A0325"
+            android:layout_marginTop="12dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox android:id="@+id/year_2020" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2020"/>
+            <CheckBox android:id="@+id/year_2021" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2021"/>
+            <CheckBox android:id="@+id/year_2022" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2022"/>
+            <CheckBox android:id="@+id/year_2023" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2023"/>
+            <CheckBox android:id="@+id/year_2024" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2024"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Branch"
+            android:textStyle="bold"
+            android:textColor="#0A0325"
+            android:layout_marginTop="12dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox android:id="@+id/branch_cse" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CSE"/>
+            <CheckBox android:id="@+id/branch_it" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="IT"/>
+            <CheckBox android:id="@+id/branch_ece" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ECE"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_apply"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Apply"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#0A0325"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+</ScrollView> 

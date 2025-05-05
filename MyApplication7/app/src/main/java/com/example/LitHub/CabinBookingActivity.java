@@ -20,7 +20,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CabinBookingActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
@@ -109,6 +111,47 @@ public class CabinBookingActivity extends AppCompatActivity {
                             Object capacityObj = data.child("capacity").getValue();
                             cabin.setCapacity(capacityObj);
                             cabin.isBooked = Boolean.TRUE.equals(data.child("isBooked").getValue(Boolean.class));
+                            
+                            // Check if cabin is booked and has bookings
+                            if (cabin.isBooked && data.child("bookings").exists()) {
+                                boolean shouldBeAvailable = true;
+                                // Check each booking's end time
+                                for (DataSnapshot bookingSnapshot : data.child("bookings").getChildren()) {
+                                    String endTimeStr = bookingSnapshot.child("endTime").getValue(String.class);
+                                    if (endTimeStr != null) {
+                                        // Parse the end time (format: "h:mm AM/PM")
+                                        String[] timeParts = endTimeStr.split(" ");
+                                        String[] hourMin = timeParts[0].split(":");
+                                        int hour = Integer.parseInt(hourMin[0]);
+                                        int minute = Integer.parseInt(hourMin[1]);
+                                        boolean isPM = timeParts[1].equals("PM");
+                                        
+                                        // Convert to 24-hour format
+                                        if (isPM && hour != 12) hour += 12;
+                                        if (!isPM && hour == 12) hour = 0;
+                                        
+                                        // Get current time
+                                        java.util.Calendar now = java.util.Calendar.getInstance();
+                                        int currentHour = now.get(java.util.Calendar.HOUR_OF_DAY);
+                                        int currentMinute = now.get(java.util.Calendar.MINUTE);
+                                        
+                                        // Compare times
+                                        if (hour > currentHour || (hour == currentHour && minute > currentMinute)) {
+                                            shouldBeAvailable = false;
+                                            break;
+                                        }
+                                    }
+                                }
+                                
+                                // If all bookings have expired, update cabin availability
+                                if (shouldBeAvailable) {
+                                    DatabaseReference cabinRef = ref.child(data.getKey());
+                                    Map<String, Object> updates = new HashMap<>();
+                                    updates.put("isBooked", false);
+                                    cabinRef.updateChildren(updates);
+                                    cabin.isBooked = false;
+                                }
+                            }
                             
                             if (cabin.name != null && cabin.capacity != null) {
                                 System.out.println("Cabin loaded - Name: " + cabin.name + ", Capacity: " + cabin.capacity + ", Booked: " + cabin.isBooked);
