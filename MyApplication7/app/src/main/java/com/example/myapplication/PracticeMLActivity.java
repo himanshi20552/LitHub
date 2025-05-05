@@ -56,6 +56,20 @@ public class PracticeMLActivity extends AppCompatActivity {
             startActivity(new Intent(this, CollaborateActivity.class));
             overridePendingTransition(0, 0);
         });
+
+        // Add click listener for the Gradient Descent quiz card
+        findViewById(R.id.quiz1_card).setOnClickListener(v -> {
+            startActivity(new Intent(this, PracticeQuiz1Activity.class));
+        });
+
+        findViewById(R.id.quiz2_card).setOnClickListener(v -> {
+            startActivity(new Intent(this, PracticeQuiz2Activity.class));
+        });
+
+        findViewById(R.id.quiz3_card).setOnClickListener(v -> {
+            startActivity(new Intent(this, PracticeQuiz3Activity.class));
+        });
+
     }
 
     @Override
