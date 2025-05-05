@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0A0325">
+
+        <!-- Header -->
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/menu_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_menu" />
+
+            <ImageView
+                android:layout_width="130dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="12dp"
+                android:src="@drawable/lithub_logo" />
+        </LinearLayout>
+
+        <!-- Settings Content -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/header"
+            android:layout_above="@+id/bottomNav"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Profile Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:padding="16dp">
+
+                    <!-- Profile Picture Placeholder -->
+                    <ImageView
+                        android:id="@+id/profile_image"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/ic_profile"
+                        android:background="@drawable/bg_circle"
+                        android:padding="4dp"/>
+
+                    <!-- Display Name -->
+                    <TextView
+                        android:id="@+id/display_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="User Name"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="16dp"/>
+
+                    <!-- Email -->
+                    <TextView
+                        android:id="@+id/email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="user.email@example.com"
+                        android:textColor="#CCCCCC"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+
+                <!-- App Version -->
+                <TextView
+                    android:id="@+id/app_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Version 1.0.0"
+                    android:textColor="#A0A0A0"
+                    android:textSize="12sp"
+                    android:layout_marginTop="32dp"/>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- Bottom Navigation (Same as other activities) -->
+        <LinearLayout
+            android:id="@+id/bottomNav"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/nav_bg"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp">
+
+            <!-- Resources Tab -->
+            <LinearLayout
+                android:id="@+id/nav_resources"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/nav_item_active_bg"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+
+                <ImageView
+                    android:id="@+id/nav_resources_icon"
+                    android:src="@drawable/ic_book"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:tint="#C5BFFF"/>
+                <TextView
+                    android:id="@+id/nav_resources_text"
+                    android:text="Resources"
+                    android:textColor="#C5BFFF"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+            </LinearLayout>
+
+            <!-- Group Study Tab -->
+            <LinearLayout
+                android:id="@+id/nav_group_study"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/nav_group_study_icon"
+                    android:src="@drawable/ic_groupstudy"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:tint="#A0A0A0"/>
+                <TextView
+                    android:id="@+id/nav_group_study_text"
+                    android:text="Group Study"
+                    android:textColor="#A0A0A0"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+            </LinearLayout>
+
+            <!-- Collaborate Tab -->
+            <LinearLayout
+                android:id="@+id/nav_collaborate"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/nav_collaborate_icon"
+                    android:src="@drawable/ic_collaborate"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:tint="#A0A0A0"/>
+                <TextView
+                    android:id="@+id/nav_collaborate_text"
+                    android:text="Collaborate"
+                    android:textColor="#A0A0A0"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+            </LinearLayout>
+
+            <!-- Practice Tab -->
+            <LinearLayout
+                android:id="@+id/nav_practice"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/nav_practice_icon"
+                    android:src="@drawable/ic_practice"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:tint="#A0A0A0"/>
+                <TextView
+                    android:id="@+id/nav_practice_text"
+                    android:text="Practice"
+                    android:textColor="#A0A0A0"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Navigation View -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#1E1A3A"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_menu"
+        app:itemTextColor="#FFFFFF"
+        app:itemIconTint="#FFFFFF"/>
+</androidx.drawerlayout.widget.DrawerLayout>
