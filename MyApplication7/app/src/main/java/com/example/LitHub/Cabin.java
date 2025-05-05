@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.LitHub;
 
 public class Cabin {
     public String name;

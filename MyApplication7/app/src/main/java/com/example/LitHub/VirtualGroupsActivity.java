@@ -1,25 +1,36 @@
-package com.example.myapplication;
+package com.example.LitHub;
 
 import android.content.Intent;
 import android.os.Bundle;
-
+import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class PracticeMainActivity extends AppCompatActivity {
+public class VirtualGroupsActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.practice_main);
+        setContentView(R.layout.virtualgroups);
 
         // Initialize drawer
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+
+        // Initialize views
+        View createSessionCard = findViewById(R.id.create_session_card);
+        View joinSessionCard = findViewById(R.id.join_session_card);
+        View tabCabin = findViewById(R.id.cabin_booking_tab);
+
+        // Tab switch listener
+        tabCabin.setOnClickListener(v -> {
+            startActivity(new Intent(this, CabinBookingActivity.class));
+            overridePendingTransition(0, 0);
+        });
 
         // Menu icon click to open drawer
         findViewById(R.id.menu_icon).setOnClickListener(v ->
@@ -41,30 +52,19 @@ public class PracticeMainActivity extends AppCompatActivity {
             return true;
         });
 
-        // Quiz card click listeners with no transition
-        findViewById(R.id.ml_quiz_card).setOnClickListener(v -> {
-            startActivity(new Intent(this, PracticeMLActivity.class));
-            overridePendingTransition(0, 0);
-        });
-
-        findViewById(R.id.mad_quiz_card).setOnClickListener(v -> {
-            startActivity(new Intent(this, PracticeQuiz1Activity.class));
-            overridePendingTransition(0, 0);
-        });
-
         // Bottom Navigation Click Listeners
         findViewById(R.id.nav_resources).setOnClickListener(v -> {
             startActivity(new Intent(this, MainActivity.class));
             overridePendingTransition(0, 0);
         });
 
-        findViewById(R.id.nav_group_study).setOnClickListener(v -> {
-            startActivity(new Intent(this, CabinBookingActivity.class));
+        findViewById(R.id.nav_collaborate).setOnClickListener(v -> {
+            startActivity(new Intent(this, CollaborateActivity.class));
             overridePendingTransition(0, 0);
         });
 
-        findViewById(R.id.nav_collaborate).setOnClickListener(v -> {
-            startActivity(new Intent(this, CollaborateActivity.class));
+        findViewById(R.id.nav_practice).setOnClickListener(v -> {
+            startActivity(new Intent(this, PracticeMainActivity.class));
             overridePendingTransition(0, 0);
         });
     }

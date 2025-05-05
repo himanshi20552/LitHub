@@ -1,35 +1,25 @@
-package com.example.myapplication;
+package com.example.LitHub;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class CollaborateActivity extends AppCompatActivity {
+public class PracticeMainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.collaborate);
+        setContentView(R.layout.practice_main);
 
         // Initialize drawer
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-
-        // WebView setup
-        WebView webView = findViewById(R.id.webViewTrello);
-        WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        webSettings.setDomStorageEnabled(true);
-        webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("https://trello.com");
 
         // Menu icon click to open drawer
         findViewById(R.id.menu_icon).setOnClickListener(v ->
@@ -51,6 +41,17 @@ public class CollaborateActivity extends AppCompatActivity {
             return true;
         });
 
+        // Quiz card click listeners with no transition
+        findViewById(R.id.ml_quiz_card).setOnClickListener(v -> {
+            startActivity(new Intent(this, PracticeMLActivity.class));
+            overridePendingTransition(0, 0);
+        });
+
+        findViewById(R.id.mad_quiz_card).setOnClickListener(v -> {
+            startActivity(new Intent(this, PracticeQuiz1Activity.class));
+            overridePendingTransition(0, 0);
+        });
+
         // Bottom Navigation Click Listeners
         findViewById(R.id.nav_resources).setOnClickListener(v -> {
             startActivity(new Intent(this, MainActivity.class));
@@ -62,8 +63,8 @@ public class CollaborateActivity extends AppCompatActivity {
             overridePendingTransition(0, 0);
         });
 
-        findViewById(R.id.nav_practice).setOnClickListener(v -> {
-            startActivity(new Intent(this, PracticeMainActivity.class));
+        findViewById(R.id.nav_collaborate).setOnClickListener(v -> {
+            startActivity(new Intent(this, CollaborateActivity.class));
             overridePendingTransition(0, 0);
         });
     }

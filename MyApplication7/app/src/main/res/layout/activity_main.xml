@@ -88,37 +88,63 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
-                <GridLayout
-                    android:id="@+id/filter_grid"
+                <!-- Replace GridLayout with this LinearLayout solution -->
+                <LinearLayout
+                    android:id="@+id/filter_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:columnCount="2"
-                    android:orientation="horizontal"
                     android:layout_marginTop="12dp"
-                    android:alignmentMode="alignMargins"
-                    android:columnOrderPreserved="false"
-                    android:useDefaultMargins="true">
+                    android:orientation="vertical">
 
-                    <Button
-                        android:id="@+id/filter_mad"
-                        style="@style/FilterButton"
-                        android:text="MAD" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
 
-                    <Button
-                        android:id="@+id/filter_seminar"
-                        style="@style/FilterButton"
-                        android:text="Seminar" />
+                        <Button
+                            android:id="@+id/filter_mad"
+                            style="@style/FilterButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:text="MAD" />
 
-                    <Button
-                        android:id="@+id/filter_coa"
-                        style="@style/FilterButton"
-                        android:text="COA" />
+                        <Button
+                            android:id="@+id/filter_seminar"
+                            style="@style/FilterButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Seminar" />
+                    </LinearLayout>
 
-                    <Button
-                        android:id="@+id/filter_ml"
-                        style="@style/FilterButton"
-                        android:text="Machine Learning" />
-                </GridLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:layout_marginTop="8dp">
+
+                        <Button
+                            android:id="@+id/filter_coa"
+                            style="@style/FilterButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:text="COA" />
+
+                        <Button
+                            android:id="@+id/filter_ml"
+                            style="@style/FilterButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="ML" />
+                    </LinearLayout>
+                </LinearLayout>
 
                 <!-- PYQs Section -->
                 <TextView

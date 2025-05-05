@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.LitHub;
 
 import android.app.TimePickerDialog;
 import android.content.Context;
@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ServerValue;
 
 import java.util.HashMap;
 import java.util.List;

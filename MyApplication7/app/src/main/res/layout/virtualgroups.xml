@@ -63,34 +63,27 @@
                     android:textColor="#FFFFFF" />
 
                 <!-- Tab Buttons -->
-                <LinearLayout
-                    android:id="@+id/tab_container"
+                <RadioGroup
+                    android:id="@+id/toggle_group"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_margin="16dp"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginTop="20dp"
                     android:background="@drawable/toggle_bg"
-                    android:orientation="horizontal">
+                    android:padding="4dp">
 
-                    <TextView
-                        android:id="@+id/tab_cabin"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="Cabin Booking"
-                        android:textColor="#FFFFFF" />
+                    <RadioButton
+                        android:id="@+id/cabin_booking_tab"
+                        style="@style/ToggleTab"
+                        android:text="Cabin Booking" />
 
-                    <TextView
-                        android:id="@+id/tab_virtual"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@drawable/bg_toggle_selected"
-                        android:gravity="center"
+                    <RadioButton
+                        android:id="@+id/virtual_groups_tab"
+                        style="@style/ToggleTab"
                         android:text="Virtual Groups"
-                        android:textColor="#000000"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                        android:checked="true" />
+                </RadioGroup>
 
                 <!-- Virtual Groups Cards -->
                 <LinearLayout
@@ -260,7 +253,8 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/nav_item_active_bg"
                 android:paddingTop="8dp"
-                android:paddingBottom="8dp">
+                android:paddingBottom="8dp"
+                android:paddingHorizontal="4dp">
 
                 <ImageView
                     android:id="@+id/nav_group_study_icon"

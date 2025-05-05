@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.LitHub;
 
 import android.app.Application;
 import com.google.firebase.FirebaseApp;

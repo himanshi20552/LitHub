@@ -1,4 +1,4 @@
-package com.example.myapplication; // Replace with your package name
+package com.example.LitHub; // Replace with your package name
 
 import android.os.Bundle;
 import android.webkit.WebSettings;
