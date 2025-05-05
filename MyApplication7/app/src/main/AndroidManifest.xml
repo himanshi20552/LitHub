@@ -58,6 +58,7 @@
             android:exported="false" />
         <activity android:name=".PracticeQuiz2Activity" />
         <activity android:name=".BookmarksActivity" />
+        <activity android:name=".SettingsActivity" />
       
     </application>
 </manifest>

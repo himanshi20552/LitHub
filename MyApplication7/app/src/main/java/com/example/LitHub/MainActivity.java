@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             } else if (id == R.id.nav_turnitin) {
                 startActivity(new Intent(this, TurnitinActivity.class));
             } else if (id == R.id.nav_settings) {
-                // Handle settings
+                startActivity(new Intent(this, SettingsActivity.class));
             } else if (id == R.id.nav_logout) {
                 // Handle logout
             }
