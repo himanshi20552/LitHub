@@ -1,31 +1,41 @@
-package com.example.myapplication;
+package com.example.LitHub;
 
 import android.content.Intent;
 import android.os.Bundle;
-
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class CollaborateActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.collaborate);
 
         // Initialize drawer
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
 
+        // WebView setup
+        WebView webView = findViewById(R.id.webViewTrello);
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setDomStorageEnabled(true);
+        webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl("https://trello.com");
+
         // Menu icon click to open drawer
         findViewById(R.id.menu_icon).setOnClickListener(v ->
                 drawerLayout.openDrawer(GravityCompat.START));
 
-        // Handle sidebar menu item clicks
+        // Handle navigation item clicks
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.nav_bookmarks) {
@@ -41,24 +51,20 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
 
-        // Bottom Navigation Click Listeners with no transition
+        // Bottom Navigation Click Listeners
         findViewById(R.id.nav_resources).setOnClickListener(v -> {
-            // Already in MainActivity
+            startActivity(new Intent(this, MainActivity.class));
+            overridePendingTransition(0, 0);
         });
 
         findViewById(R.id.nav_group_study).setOnClickListener(v -> {
             startActivity(new Intent(this, CabinBookingActivity.class));
-            overridePendingTransition(0, 0); // Disable transition
-        });
-
-        findViewById(R.id.nav_collaborate).setOnClickListener(v -> {
-            startActivity(new Intent(this, CollaborateActivity.class));
-            overridePendingTransition(0, 0); // Disable transition
+            overridePendingTransition(0, 0);
         });
 
         findViewById(R.id.nav_practice).setOnClickListener(v -> {
             startActivity(new Intent(this, PracticeMainActivity.class));
-            overridePendingTransition(0, 0); // Disable transition
+            overridePendingTransition(0, 0);
         });
     }
 
@@ -68,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
-            overridePendingTransition(0, 0); // Disable back transition too
+            overridePendingTransition(0, 0);
         }
     }
 }

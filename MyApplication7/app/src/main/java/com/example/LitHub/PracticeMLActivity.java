@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.LitHub;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,13 +9,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class PracticeMainActivity extends AppCompatActivity {
+public class PracticeMLActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.practice_main);
+        setContentView(R.layout.practice_ml);
 
         // Initialize drawer
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -41,17 +41,6 @@ public class PracticeMainActivity extends AppCompatActivity {
             return true;
         });
 
-        // Quiz card click listeners with no transition
-        findViewById(R.id.ml_quiz_card).setOnClickListener(v -> {
-            startActivity(new Intent(this, PracticeMLActivity.class));
-            overridePendingTransition(0, 0);
-        });
-
-        findViewById(R.id.mad_quiz_card).setOnClickListener(v -> {
-            startActivity(new Intent(this, PracticeQuiz1Activity.class));
-            overridePendingTransition(0, 0);
-        });
-
         // Bottom Navigation Click Listeners
         findViewById(R.id.nav_resources).setOnClickListener(v -> {
             startActivity(new Intent(this, MainActivity.class));
@@ -67,6 +56,20 @@ public class PracticeMainActivity extends AppCompatActivity {
             startActivity(new Intent(this, CollaborateActivity.class));
             overridePendingTransition(0, 0);
         });
+
+        // Add click listener for the Gradient Descent quiz card
+        findViewById(R.id.quiz1_card).setOnClickListener(v -> {
+            startActivity(new Intent(this, PracticeQuiz1Activity.class));
+        });
+
+        findViewById(R.id.quiz2_card).setOnClickListener(v -> {
+            startActivity(new Intent(this, PracticeQuiz2Activity.class));
+        });
+
+        findViewById(R.id.quiz3_card).setOnClickListener(v -> {
+            startActivity(new Intent(this, PracticeQuiz3Activity.class));
+        });
+
     }
 
     @Override

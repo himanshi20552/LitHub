@@ -57,6 +57,5 @@
             android:name=".PracticeQuiz1Activity"
             android:exported="false" />
         <activity android:name=".PracticeQuiz2Activity" />
-        <activity android:name=".PracticeQuiz3Activity" />
     </application>
 </manifest>
