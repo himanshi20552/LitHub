@@ -1,12 +1,8 @@
 package com.example.LitHub;
 
-import android.app.AlertDialog;
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,32 +11,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class VirtualGroupsActivity extends AppCompatActivity {
+public class BookmarksActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.virtualgroups);
+        setContentView(R.layout.bookmarks);
 
         // Initialize drawer
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-
-        // Initialize views
-        View createSessionCard = findViewById(R.id.create_session_card);
-        View joinSessionCard = findViewById(R.id.join_session_card);
-        View tabCabin = findViewById(R.id.cabin_booking_tab);
-
-        // Set click listeners - Create goes directly to new meeting, Join shows dialog
-        createSessionCard.setOnClickListener(v -> openGoogleMeet("https://meet.google.com/new"));
-        joinSessionCard.setOnClickListener(v -> showJoinDialog());
-
-        // Tab switch listener
-        tabCabin.setOnClickListener(v -> {
-            startActivity(new Intent(this, CabinBookingActivity.class));
-            overridePendingTransition(0, 0);
-        });
 
         // Menu icon click to open drawer
         findViewById(R.id.menu_icon).setOnClickListener(v ->
@@ -50,7 +31,7 @@ public class VirtualGroupsActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.nav_bookmarks) {
-                Toast.makeText(this, "Bookmarks selected", Toast.LENGTH_SHORT).show();
+                // Already in bookmarks, just close drawer
             } else if (id == R.id.nav_turnitin) {
                 startActivity(new Intent(this, TurnitinActivity.class));
             } else if (id == R.id.nav_settings) {
@@ -69,6 +50,11 @@ public class VirtualGroupsActivity extends AppCompatActivity {
             overridePendingTransition(0, 0);
         });
 
+        findViewById(R.id.nav_group_study).setOnClickListener(v -> {
+            startActivity(new Intent(this, CabinBookingActivity.class));
+            overridePendingTransition(0, 0);
+        });
+
         findViewById(R.id.nav_collaborate).setOnClickListener(v -> {
             startActivity(new Intent(this, CollaborateActivity.class));
             overridePendingTransition(0, 0);
@@ -78,40 +64,6 @@ public class VirtualGroupsActivity extends AppCompatActivity {
             startActivity(new Intent(this, PracticeMainActivity.class));
             overridePendingTransition(0, 0);
         });
-    }
-
-    private void showJoinDialog() {
-        EditText input = new EditText(this);
-        input.setHint("abc-defg-hij");
-
-        new AlertDialog.Builder(this)
-                .setTitle("Join Meeting")
-                .setMessage("Enter meeting code:")
-                .setView(input)
-                .setPositiveButton("Join", (d, w) -> {
-                    String code = input.getText().toString().trim();
-                    if (!code.isEmpty()) {
-                        openGoogleMeet("https://meet.google.com/" + code);
-                    } else {
-                        Toast.makeText(this, "Please enter a meeting code", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .setNegativeButton("Cancel", null)
-                .show();
-    }
-
-    private void openGoogleMeet(String url) {
-        try {
-            // Try to open Google Meet app directly
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(url));
-            intent.setPackage("com.google.android.apps.meetings");
-            startActivity(intent);
-        } catch (ActivityNotFoundException e) {
-            // Fallback to browser if app not installed
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-            startActivity(browserIntent);
-        }
     }
 
     @Override

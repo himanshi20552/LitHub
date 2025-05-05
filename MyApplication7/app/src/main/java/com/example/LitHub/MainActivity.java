@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.nav_bookmarks) {
-                // Handle bookmarks
+                startActivity(new Intent(this, BookmarksActivity.class));
             } else if (id == R.id.nav_turnitin) {
                 startActivity(new Intent(this, TurnitinActivity.class));
             } else if (id == R.id.nav_settings) {
