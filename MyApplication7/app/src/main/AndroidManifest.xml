@@ -26,6 +26,11 @@
             </intent-filter>
         </activity>
 
+
+        <activity android:name=".Homepage" />
+        <activity android:name=".SignupActivity" />
+
+
         <!-- Other Activities -->
         <activity
             android:name=".TurnitinActivity"
