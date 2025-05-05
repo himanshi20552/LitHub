@@ -107,6 +107,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, PracticeMainActivity.class));
             overridePendingTransition(0, 0);
         });
+
+        TextView pyqHeader = findViewById(R.id.pyq_header);
+        pyqHeader.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, PyqListActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void loadResources() {

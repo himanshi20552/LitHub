@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0A0325">
+
+        <LinearLayout
+            android:id="@+id/main_content_container"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Top bar -->
+            <LinearLayout
+                android:id="@+id/top_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:id="@+id/menu_icon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/ic_menu" />
+
+                <ImageView
+                    android:id="@+id/app_logo"
+                    android:layout_width="130dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/lithub_logo"
+                    android:layout_marginStart="12dp" />
+            </LinearLayout>
+
+            <!-- Search Bar -->
+            <EditText
+                android:id="@+id/search_bar"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:hint="  Search by title, subject, or year"
+                android:drawableStart="@drawable/ic_search"
+                android:background="@drawable/search_bg"
+                android:paddingStart="16dp"
+                android:textColorHint="#CCCCCC"
+                android:textColor="#FFFFFF" />
+
+            <!-- Section Title and Filter Button -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/pyq_section_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="PYQ's"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/btn_apply_filters"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Apply Filters"
+                    android:textColor="#0A0325"
+                    android:backgroundTint="#C5BFFF"
+                    android:layout_gravity="end" />
+            </LinearLayout>
+
+            <!-- PYQ List -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewPyqs"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:clipToPadding="false"
+                android:padding="8dp"/>
+        </LinearLayout>
+
+        <!-- Bottom Navigation -->
+        <LinearLayout
+            android:id="@+id/bottomNav"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/nav_bg"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp">
+
+            <!-- Resources Tab -->
+            <LinearLayout
+                android:id="@+id/nav_resources"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/nav_resources_icon"
+                    android:src="@drawable/ic_book"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:tint="#A0A0A0"/>
+                <TextView
+                    android:id="@+id/nav_resources_text"
+                    android:text="Resources"
+                    android:textColor="#A0A0A0"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+            </LinearLayout>
+
+            <!-- Group Study Tab (Active) -->
+            <LinearLayout
+                android:id="@+id/nav_group_study"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/nav_item_active_bg"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+
+                <ImageView
+                    android:id="@+id/nav_group_study_icon"
+                    android:src="@drawable/ic_groupstudy"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:tint="#C5BFFF"/>
+                <TextView
+                    android:id="@+id/nav_group_study_text"
+                    android:text="Group Study"
+                    android:textColor="#C5BFFF"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+            </LinearLayout>
+
+            <!-- Collaborate Tab -->
+            <LinearLayout
+                android:id="@+id/nav_collaborate"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/nav_collaborate_icon"
+                    android:src="@drawable/ic_collaborate"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:tint="#A0A0A0"/>
+                <TextView
+                    android:id="@+id/nav_collaborate_text"
+                    android:text="Collaborate"
+                    android:textColor="#A0A0A0"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+            </LinearLayout>
+
+            <!-- Practice Tab -->
+            <LinearLayout
+                android:id="@+id/nav_practice"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/nav_practice_icon"
+                    android:src="@drawable/ic_practice"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:tint="#A0A0A0"/>
+                <TextView
+                    android:id="@+id/nav_practice_text"
+                    android:text="Practice"
+                    android:textColor="#A0A0A0"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Navigation View -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#1E1A3A"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_menu"
+        app:itemTextColor="#FFFFFF"
+        app:itemIconTint="#FFFFFF"/>
+</androidx.drawerlayout.widget.DrawerLayout> 
