@@ -24,7 +24,7 @@ public class VirtualGroupsActivity extends AppCompatActivity {
         // Initialize views
         View createSessionCard = findViewById(R.id.create_session_card);
         View joinSessionCard = findViewById(R.id.join_session_card);
-        View tabCabin = findViewById(R.id.tab_cabin);
+        View tabCabin = findViewById(R.id.cabin_booking_tab);
 
         // Tab switch listener
         tabCabin.setOnClickListener(v -> {
