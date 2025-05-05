@@ -1,14 +1,17 @@
 package com.example.LitHub;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.LitHub.Homepage;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -18,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
     private Button signInBtn, signUpBtn;
     private FirebaseAuth mAuth;
 
+    private boolean isPasswordVisible = false;
+
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +41,32 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, SignupActivity.class));
         });
 
+        passwordInput.setOnTouchListener((v, event) -> {
+            final int DRAWABLE_RIGHT = 2; // drawableEnd index
+
+            if (event.getAction() == MotionEvent.ACTION_UP) {
+                if (event.getRawX() >= (passwordInput.getRight() -
+                        passwordInput.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+
+                    if (isPasswordVisible) {
+                        // Hide password
+                        passwordInput.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                        passwordInput.setCompoundDrawablesWithIntrinsicBounds(R.drawable.pass_ic, 0, R.drawable.eyes, 0);
+                        isPasswordVisible = false;
+                    } else {
+                        // Show password
+                        passwordInput.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                        passwordInput.setCompoundDrawablesWithIntrinsicBounds(R.drawable.pass_ic, 0, R.drawable.eyes_closed, 0);
+                        isPasswordVisible = true;
+                    }
+
+                    // Keep cursor at end
+                    passwordInput.setSelection(passwordInput.getText().length());
+                    return true;
+                }
+            }
+            return false;
+        });
     }
 
     private void loginUser() {
@@ -54,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, Homepage.class));
                         finish();
                     } else {
-                        Toast.makeText(MainActivity.this, "Login failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Login failed!", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
@@ -76,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, Homepage.class));
                         finish();
                     } else {
-                        Toast.makeText(MainActivity.this, "Registration failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Registration failed!", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
