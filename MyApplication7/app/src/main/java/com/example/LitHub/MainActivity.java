@@ -118,86 +118,86 @@ public class MainActivity extends AppCompatActivity {
     private void loadResources() {
         // Sample resources - replace these URLs with actual PDF URLs
         List<Resource> allResources = new ArrayList<>();
-        
+
         // Books
         allResources.add(new Resource(
-            "Android Development Guide",
-            "book",
-            "https://developer.android.com/guide/pdf/android-developer-guide.pdf",
-            "MAD"
+                "Android Development Guide",
+                "book",
+                "https://developer.android.com/guide/pdf/android-developer-guide.pdf",
+                "MAD"
         ));
         allResources.add(new Resource(
-            "Machine Learning Basics",
-            "book",
-            "https://www.cs.cmu.edu/~tom/mlbook.pdf",
-            "ML"
+                "Machine Learning Basics",
+                "book",
+                "https://www.cs.cmu.edu/~tom/mlbook.pdf",
+                "ML"
         ));
         // Add more books here
         allResources.add(new Resource(
-            "Data Structures and Algorithms",
-            "book",
-            "https://example.com/books/dsa.pdf",
-            "DSA"
+                "Data Structures and Algorithms",
+                "book",
+                "https://example.com/books/dsa.pdf",
+                "DSA"
         ));
         allResources.add(new Resource(
-            "Computer Networks",
-            "book",
-            "https://example.com/books/cn.pdf",
-            "CN"
+                "Computer Networks",
+                "book",
+                "https://example.com/books/cn.pdf",
+                "CN"
         ));
 
         // PYQs
         allResources.add(new Resource(
-            "2023 Final Exam",
-            "pyq",
-            "https://example.com/pyqs/2023-final.pdf",
-            "COA"
+                "2023 Final Exam",
+                "pyq",
+                "https://example.com/pyqs/2023-final.pdf",
+                "COA"
         ));
         allResources.add(new Resource(
-            "2022 Mid Semester",
-            "pyq",
-            "https://example.com/pyqs/2022-mid.pdf",
-            "MAD"
+                "2022 Mid Semester",
+                "pyq",
+                "https://example.com/pyqs/2022-mid.pdf",
+                "MAD"
         ));
         // Add more PYQs here
         allResources.add(new Resource(
-            "2023 Mid Semester",
-            "pyq",
-            "https://example.com/pyqs/2023-mid.pdf",
-            "OS"
+                "2023 Mid Semester",
+                "pyq",
+                "https://example.com/pyqs/2023-mid.pdf",
+                "OS"
         ));
         allResources.add(new Resource(
-            "2022 Final Exam",
-            "pyq",
-            "https://example.com/pyqs/2022-final.pdf",
-            "DBMS"
+                "2022 Final Exam",
+                "pyq",
+                "https://example.com/pyqs/2022-final.pdf",
+                "DBMS"
         ));
 
         // Notes
         allResources.add(new Resource(
-            "Operating Systems Notes",
-            "note",
-            "https://example.com/notes/os-notes.pdf",
-            "OS"
+                "Operating Systems Notes",
+                "note",
+                "https://example.com/notes/os-notes.pdf",
+                "OS"
         ));
         allResources.add(new Resource(
-            "Database Systems",
-            "note",
-            "https://example.com/notes/db-notes.pdf",
-            "DBMS"
+                "Database Systems",
+                "note",
+                "https://example.com/notes/db-notes.pdf",
+                "DBMS"
         ));
         // Add more notes here
         allResources.add(new Resource(
-            "Computer Architecture",
-            "note",
-            "https://example.com/notes/coa-notes.pdf",
-            "COA"
+                "Computer Architecture",
+                "note",
+                "https://example.com/notes/coa-notes.pdf",
+                "COA"
         ));
         allResources.add(new Resource(
-            "Software Engineering",
-            "note",
-            "https://example.com/notes/se-notes.pdf",
-            "SE"
+                "Software Engineering",
+                "note",
+                "https://example.com/notes/se-notes.pdf",
+                "SE"
         ));
 
         // Clear existing lists
@@ -252,9 +252,9 @@ public class MainActivity extends AppCompatActivity {
                                 SearchManager.getInstance(MainActivity.this).performSearch(query);
                             } catch (Exception e) {
                                 e.printStackTrace();
-                                android.widget.Toast.makeText(MainActivity.this, 
-                                    "Error performing search", 
-                                    android.widget.Toast.LENGTH_SHORT).show();
+                                android.widget.Toast.makeText(MainActivity.this,
+                                        "Error performing search",
+                                        android.widget.Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
