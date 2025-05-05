@@ -1,35 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#0A0325">
-
-    <!-- Top Bar (Same as other screens) -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:padding="16dp">
-
-        <ImageView
-            android:id="@+id/menu_icon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/ic_menu" />
-
-        <ImageView
-            android:layout_width="130dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="12dp"
-            android:src="@drawable/lithub_logo" />
-    </LinearLayout>
-
-    <!-- Full-screen WebView -->
-    <WebView
-        android:id="@+id/webViewTurnitin"
+    android:fitsSystemWindows="true">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#1E1A3A" />
-</LinearLayout>
+        android:orientation="vertical"
+        android:background="#0A0325">
+
+        <!-- Top Bar (Same as other screens) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/menu_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_menu" />
+
+            <ImageView
+                android:layout_width="130dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="12dp"
+                android:src="@drawable/lithub_logo" />
+        </LinearLayout>
+
+        <!-- Full-screen WebView -->
+        <WebView
+            android:id="@+id/webViewTurnitin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#1E1A3A" />
+    </LinearLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#1E1A3A"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_menu"
+        app:itemTextColor="#FFFFFF"
+        app:itemIconTint="#FFFFFF"/>
+</androidx.drawerlayout.widget.DrawerLayout>

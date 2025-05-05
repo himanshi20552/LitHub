@@ -14,17 +14,18 @@
         android:background="@drawable/bg_circle"/>
 
     <TextView
+        android:id="@+id/display_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="User Name"
         android:textColor="#FFFFFF"
         android:textSize="16sp"/>
 
     <TextView
+        android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="user@email.com"
         android:textColor="#C5BFFF"
         android:textSize="14sp"/>
+
 </LinearLayout>

@@ -128,7 +128,7 @@
                     android:src="@drawable/ic_book"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:tint="#C5BFFF"/>
+                    app:tint="#C5BFFF" />
                 <TextView
                     android:id="@+id/nav_resources_text"
                     android:text="Resources"
@@ -153,7 +153,7 @@
                     android:src="@drawable/ic_groupstudy"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:tint="#A0A0A0"/>
+                    app:tint="#A0A0A0" />
                 <TextView
                     android:id="@+id/nav_group_study_text"
                     android:text="Group Study"
@@ -178,7 +178,7 @@
                     android:src="@drawable/ic_collaborate"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:tint="#A0A0A0"/>
+                    app:tint="#A0A0A0" />
                 <TextView
                     android:id="@+id/nav_collaborate_text"
                     android:text="Collaborate"
@@ -203,7 +203,7 @@
                     android:src="@drawable/ic_practice"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:tint="#A0A0A0"/>
+                    app:tint="#A0A0A0" />
                 <TextView
                     android:id="@+id/nav_practice_text"
                     android:text="Practice"
