@@ -253,7 +253,8 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/nav_item_active_bg"
                 android:paddingTop="8dp"
-                android:paddingBottom="8dp">
+                android:paddingBottom="8dp"
+                android:paddingHorizontal="4dp">
 
                 <ImageView
                     android:id="@+id/nav_group_study_icon"
