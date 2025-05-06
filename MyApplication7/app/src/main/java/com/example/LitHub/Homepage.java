@@ -164,6 +164,11 @@ public class Homepage extends AppCompatActivity {
             Intent intent = new Intent(Homepage.this, NoteListActivity.class);
             startActivity(intent);
         });
+
+        findViewById(R.id.filter_mad).setOnClickListener(v -> openFilteredResourceList("MAD"));
+        findViewById(R.id.filter_seminar).setOnClickListener(v -> openFilteredResourceList("Seminar"));
+        findViewById(R.id.filter_coa).setOnClickListener(v -> openFilteredResourceList("COA"));
+        findViewById(R.id.filter_ml).setOnClickListener(v -> openFilteredResourceList("ML"));
     }
 
     private void loadResources() {
@@ -315,6 +320,12 @@ public class Homepage extends AppCompatActivity {
                 handler.postDelayed(searchRunnable, 500);
             }
         });
+    }
+
+    private void openFilteredResourceList(String subject) {
+        Intent intent = new Intent(this, FilteredResourceListActivity.class);
+        intent.putExtra("subject", subject);
+        startActivity(intent);
     }
 
     @Override
