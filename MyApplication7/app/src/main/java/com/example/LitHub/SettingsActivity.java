@@ -2,11 +2,8 @@ package com.example.LitHub;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -15,6 +12,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class SettingsActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
@@ -42,12 +41,16 @@ public class SettingsActivity extends AppCompatActivity {
             } else if (id == R.id.nav_settings) {
                 // Already in settings
             } else if (id == R.id.nav_logout) {
+                // Sign out user and redirect to login screen
                 FirebaseAuth.getInstance().signOut();
                 Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show();
-                finishAffinity();
+                Intent intent = new Intent(this, MainActivity.class); // Your Login Activity
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // Clear task stack
+                startActivity(intent);
             }
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
+
         });
 
         // Bottom Navigation
@@ -77,16 +80,27 @@ public class SettingsActivity extends AppCompatActivity {
         emailTextView = findViewById(R.id.email);
 
         if (currentUser != null) {
-            String name = currentUser.getDisplayName();
-            String email = currentUser.getEmail();
+            String userId = currentUser.getUid();
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-            if (name != null && !name.isEmpty()) {
-                displayNameTextView.setText(name);
-            } else {
-                displayNameTextView.setText("User");
-            }
+            db.collection("users").document(userId).get()
+                    .addOnSuccessListener(documentSnapshot -> {
+                        if (documentSnapshot.exists()) {
+                            String fullName = documentSnapshot.getString("fullName");
+                            String email = documentSnapshot.getString("email");
 
-            emailTextView.setText(email != null ? email : "Email not found");
+                            displayNameTextView.setText(fullName != null ? fullName : "User");
+                            emailTextView.setText(email != null ? email : "Email not found");
+                        } else {
+                            displayNameTextView.setText("User");
+                            emailTextView.setText("Email not found");
+                        }
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(this, "Failed to load user info", Toast.LENGTH_SHORT).show();
+                        displayNameTextView.setText("User");
+                        emailTextView.setText("Email not found");
+                    });
         } else {
             displayNameTextView.setText("Not logged in");
             emailTextView.setText("");
