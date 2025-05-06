@@ -68,7 +68,7 @@ public class SignupActivity extends AppCompatActivity {
                                 });
 
                     } else {
-                        Toast.makeText(SignupActivity.this, "Error:!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(SignupActivity.this, "Error!" + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
     }
