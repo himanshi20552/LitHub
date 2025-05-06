@@ -70,7 +70,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="PYQ's"
+                    android:text="Notes"
                     android:textColor="#FFFFFF"
                     android:textStyle="bold"
                     android:textSize="16sp" />
@@ -87,7 +87,7 @@
 
             <!-- PYQ List -->
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewPyqs"
+                android:id="@+id/recyclerViewNotes"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -174,7 +174,7 @@
                     android:src="@drawable/ic_collaborate"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:tint="#A0A0A0"/>
+                    app:tint="#A0A0A0" />
                 <TextView
                     android:id="@+id/nav_collaborate_text"
                     android:text="Collaborate"
@@ -199,7 +199,7 @@
                     android:src="@drawable/ic_practice"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:tint="#A0A0A0"/>
+                    app:tint="#A0A0A0" />
                 <TextView
                     android:id="@+id/nav_practice_text"
                     android:text="Practice"
@@ -223,4 +223,4 @@
         app:menu="@menu/drawer_menu"
         app:itemTextColor="#FFFFFF"
         app:itemIconTint="#FFFFFF"/>
-</androidx.drawerlayout.widget.DrawerLayout> 
+</androidx.drawerlayout.widget.DrawerLayout>
