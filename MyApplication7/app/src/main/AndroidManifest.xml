@@ -64,6 +64,9 @@
         <activity android:name=".PracticeQuiz2Activity" />
         <activity android:name=".BookmarksActivity" />
         <activity android:name=".SettingsActivity" />
+        <activity android:name=".PyqListActivity"/>
+        <activity android:name=".BookListActivity"/>
+        <activity android:name=".NoteListActivity"/>
       
     </application>
 </manifest>

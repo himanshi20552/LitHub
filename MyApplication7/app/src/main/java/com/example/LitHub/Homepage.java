@@ -152,6 +152,18 @@ public class Homepage extends AppCompatActivity {
             Intent intent = new Intent(Homepage.this, PyqListActivity.class);
             startActivity(intent);
         });
+
+        TextView booksHeader = findViewById(R.id.books_header);
+        booksHeader.setOnClickListener(v -> {
+            Intent intent = new Intent(Homepage.this, BookListActivity.class);
+            startActivity(intent);
+        });
+
+        TextView notesHeader = findViewById(R.id.notes_header);
+        notesHeader.setOnClickListener(v -> {
+            Intent intent = new Intent(Homepage.this, NoteListActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void loadResources() {
