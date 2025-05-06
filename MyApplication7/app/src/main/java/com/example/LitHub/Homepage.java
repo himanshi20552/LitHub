@@ -179,7 +179,7 @@ public class Homepage extends AppCompatActivity {
         allResources.add(new Resource(
                 "Android Development Guide",
                 "book",
-                "https://developer.android.com/guide/pdf/android-developer-guide.pdf",
+                "https://github.com/himanshi20552/LitHub/blob/main/PDFs/notes/1.%20Mobile%20Application%20Development%20CSE3709.pdf",
                 "MAD"
         ));
         allResources.add(new Resource(
@@ -212,7 +212,7 @@ public class Homepage extends AppCompatActivity {
         allResources.add(new Resource(
                 "2022 Mid Semester",
                 "pyq",
-                "https://example.com/pyqs/2022-mid.pdf",
+                "https://github.com/himanshi20552/LitHub/blob/main/PDFs/notes/1.%20Mobile%20Application%20Development%20CSE3709.pdf",
                 "MAD"
         ));
         // Add more PYQs here
