@@ -67,6 +67,7 @@
         <activity android:name=".PyqListActivity"/>
         <activity android:name=".BookListActivity"/>
         <activity android:name=".NoteListActivity"/>
+        <activity android:name=".FilteredResourceListActivity"/>
       
     </application>
 </manifest>

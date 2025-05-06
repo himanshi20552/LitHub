@@ -83,7 +83,7 @@
                 <!-- Filter by Course -->
                 <TextView
                     android:id="@+id/filter_header"
-                    android:text="Filter by course >"
+                    android:text="Filter by course"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp"
                     android:layout_marginTop="24dp"
